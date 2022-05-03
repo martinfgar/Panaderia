@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Repo\Repo.csproj" />
     <ProjectReference Include="..\lib\lib.csproj" />
+    <ProjectReference Include="..\Sistema\Sistema.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

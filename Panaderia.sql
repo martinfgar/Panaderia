@@ -15,12 +15,13 @@ create table pedido(
     entregado integer not null,
     pagado integer not null,
     dni text not null,
+    unique(dni,fecha),
     foreign key (dni) references cliente(dni)
 );
 
 create table pedido_habitual(
     id_pedido_habitual integer primary key autoincrement,
-    dni text not null,
+    dni text not null unique,
     foreign key (dni) references cliente(dni)
 );
 create table producto(
@@ -90,13 +91,18 @@ insert into producto (nombre,precio,kg_harina_ud) values('Chapata',1.2,0.3);
 insert into producto (nombre,precio,kg_harina_ud) values('Rustico',1.5,0.5);
 insert into producto (nombre,precio,kg_harina_ud) values('Hogaza',2,0.7);
 
-insert into pedido values(1,"03/05/2022",0,0,'12345678A');
-insert into pedido values(2,"03/05/2022",0,0,'12345678B');
-insert into pedido values(3,"03/05/2022",0,0,'12345678C');
-insert into pedido values(4,"03/05/2022",0,0,'12345678D');
+insert into pedido values(1,"3/5/2022",1,0,'12345678A');
+insert into pedido values(2,"3/5/2022",0,0,'12345678B');
+insert into pedido values(3,"3/5/2022",0,0,'12345678C');
+
 
 insert into pedido_producto values(1,1,20);
 insert into pedido_producto values(1,2,10);
 insert into pedido_producto values(2,3,15);
 insert into pedido_producto values(3,4,13);
-insert into pedido_producto values(4,1,40);
+
+insert into pedido_habitual values(1,'12345678D');
+insert into pedido_hab_producto values(1,1,4);
+insert into pedido_habitual values(2,'12345678E');
+insert into pedido_hab_producto values(2,1,5);
+insert into excepcion values(2,'3/5/2022');

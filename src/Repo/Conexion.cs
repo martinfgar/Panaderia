@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 namespace Repo;
 public class ConnectDB
-{   SQLiteConnection sqlite_conn;
+{   SQLiteConnection? sqlite_conn;
     static string url= "../../panaderia.sqlite";
 
     static string fichero_sql = "../../Panaderia.sql";
@@ -16,7 +16,6 @@ public class ConnectDB
              crearDB();
          } else{
              sqlite_conn = new SQLiteConnection($"Data Source={url};");
-             Console.WriteLine("Base de datos encontrada");
          }
          
          return sqlite_conn;

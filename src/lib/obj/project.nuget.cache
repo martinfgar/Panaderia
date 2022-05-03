@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "utD+6COUCJZfxFJ4GqYY8cz1zvP5ZpfvCCexgrnuUyv9EwneJNX+xwX+NDHk5qGM6N+rmKwnYGgDwaXvod+d8g==",
+  "dgSpecHash": "mo4Uq0G/G0v7jf5J+NDm9qVnZPccGx18Ao8RPwMXqiNxicnkYKPFtoJDZnndALN6QKWdguJ+pLxix+0CGP5I6g==",
   "success": true,
-  "projectFilePath": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj",
+  "expectedPackageFiles": [
+    "/home/martin/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.2/microsoft.aspnetcore.app.ref.6.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
