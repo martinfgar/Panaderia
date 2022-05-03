@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {}
+    "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
+    "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
+        "projectUniqueName": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
         "projectName": "lib",
-        "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
+        "projectPath": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
         "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\obj\\",
+        "outputPath": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MP2yL3oxQw6QU/medl5X+937zEYPXa7dB6sd6Ffu7LLqGz7gZuw4ZhsuEmzC0tYJ8c7i/4GESH/xo97pIKvomw==",
+  "dgSpecHash": "yv6cyc02k8yR8VXp0TDDN7WyWF+c89XQt+T2gDz1Lw2DB7df1kfCw6MCCZ0jSBiJ7IjvBcbjs4HRZQW2Bbk99g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
+  "projectFilePath": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1daw3\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\1daw3\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

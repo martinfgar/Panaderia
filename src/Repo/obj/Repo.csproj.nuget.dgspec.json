@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {}
+    "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
+    "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
+        "projectUniqueName": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
         "projectName": "lib",
-        "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
+        "projectPath": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
         "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\obj\\",
+        "outputPath": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,14 +58,14 @@
         }
       }
     },
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
+    "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
+        "projectUniqueName": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
         "projectName": "Repo",
-        "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
+        "projectPath": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
         "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\obj\\",
+        "outputPath": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
+              "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
+                "projectPath": "c:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
               }
             }
           }

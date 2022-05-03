@@ -2,6 +2,6 @@
 using modelos;
 using Repo;
 ConnectDB con = new ConnectDB();
-Selects sel = new Selects();
-sel.obtenerClientes(con.crearConexion());
+Selects sel = new Selects(con.crearConexion());
+sel.obtenerClientes();
 
