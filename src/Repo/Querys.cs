@@ -63,13 +63,13 @@ public class Selects
         return lista;
     }
 
-    //Obtiene la lista de pedidos programados para hoy.
-    public List<Pedido> obtenerPedidosHoy()
+    //Obtiene la lista de pedidos programados para la fecha especificada.
+    public List<Pedido> obtenerPedidosFecha(DateTime fecha)
     {
         List<Pedido> lista = new();
         conexion.Open();
         sqlite_cmd = conexion.CreateCommand();
-        sqlite_cmd.CommandText = $"select * from pedido where fecha='{DateTime.Now.ToString("d", CultureInfo.GetCultureInfo("es-ES"))}'";
+        sqlite_cmd.CommandText = $"select * from pedido where fecha='{fecha.ToString("d", CultureInfo.GetCultureInfo("es-ES"))}'";
         sqlite_datareader = sqlite_cmd.ExecuteReader();
         while (sqlite_datareader.Read())
         {
@@ -90,7 +90,7 @@ public class Selects
 
             while (reader2.Read())
             {
-                pedido.id_prod_cantidad.Add((reader2.GetInt32(1),reader2.GetInt32(2)));
+                pedido.id_prod_cantidad.Add((reader2.GetInt32(1), reader2.GetInt32(2)));
             }
             lista.Add(pedido);
         }
@@ -157,7 +157,8 @@ public class Selects
     }
 
     //Obtiene lista de pedidos entregados no pagados por usuario
-    public List<Pedido> pedidosUsuarioSinPagar(string dni){
+    public List<Pedido> pedidosUsuarioSinPagar(string dni)
+    {
         List<Pedido> lista = new();
         conexion.Open();
         sqlite_cmd = conexion.CreateCommand();
@@ -182,7 +183,7 @@ public class Selects
 
             while (reader2.Read())
             {
-                pedido.id_prod_cantidad.Add((reader2.GetInt32(1),reader2.GetInt32(2)));
+                pedido.id_prod_cantidad.Add((reader2.GetInt32(1), reader2.GetInt32(2)));
             }
             lista.Add(pedido);
         }
@@ -204,15 +205,26 @@ public class Inserts
     //Registrar un nuevo cliente
     public void registrarCliente(Cliente cliente)
     {
+        try
+        {
+            sqlite_cmd = conexion.CreateCommand();
+            conexion.Open();
+            sqlite_cmd.CommandText = $"insert into cliente values(@dni,@nombre,@direccion); select last_insert_rowid();";
+            sqlite_cmd.Parameters.AddWithValue("@dni", cliente.dni);
+            sqlite_cmd.Parameters.AddWithValue("@nombre", cliente.nombre);
+            sqlite_cmd.Parameters.AddWithValue("@direccion", cliente.direccion);
+            sqlite_cmd.ExecuteReader();
+        }
+        catch (SQLiteException ex)
+        {
+            throw;
+        }
+        finally
+        {
+            conexion.Close();
+        }
 
-        sqlite_cmd = conexion.CreateCommand();
-        conexion.Open();
-        sqlite_cmd.CommandText = $"insert into cliente values(@dni,@nombre,@direccion); select last_insert_rowid();";
-        sqlite_cmd.Parameters.AddWithValue("@dni", cliente.dni);
-        sqlite_cmd.Parameters.AddWithValue("@nombre", cliente.nombre);
-        sqlite_cmd.Parameters.AddWithValue("@direccion", cliente.direccion);
-        sqlite_cmd.ExecuteReader();
-        conexion.Close();
+
     }
 
     //Registrar un nuevo pedido
@@ -239,61 +251,151 @@ public class Inserts
                 sqlite_cmd.Parameters.AddWithValue("@cantidad", tupla.Item2);
                 sqlite_cmd.ExecuteReader();
             });
-            conexion.Close();
+
         }
-        catch (Exception e)
+        catch (SQLiteException ex)
         {
             //Para cuando ese usuario ya tiene un pedido para ese dia
+            throw;
+        }
+        finally
+        {
             conexion.Close();
         }
     }
 
+
+    //Registrar nuevo pedido habitual
+    public void registrarPedidoHabitual(PedidoHabitual pedido)
+    {
+        try
+        {
+            sqlite_cmd = conexion.CreateCommand();
+            conexion.Open();
+            sqlite_cmd.CommandText = $"insert into pedido_habitual(dni) values(@dni)";
+            sqlite_cmd.Parameters.AddWithValue("@dni", pedido.dni);
+            sqlite_cmd.ExecuteReader();
+            int _id_pedido = (int)conexion.LastInsertRowId;
+            pedido.productos.ForEach(tupla =>
+            {
+                sqlite_cmd = conexion.CreateCommand();
+                sqlite_cmd.CommandText = $"insert into pedido_hab_producto values(@id_pedido,@id_producto,@cantidad)";
+                sqlite_cmd.Parameters.AddWithValue("@id_pedido", _id_pedido);
+                sqlite_cmd.Parameters.AddWithValue("@id_producto", tupla.Item1.id_producto);
+                sqlite_cmd.Parameters.AddWithValue("@cantidad", tupla.Item2);
+                sqlite_cmd.ExecuteReader();
+            });
+
+        }
+        catch (SQLiteException ex)
+        {
+            //Para cuando ese usuario ya tiene un pedido para ese dia
+            throw;
+        }
+        finally
+        {
+            conexion.Close();
+        }
+
+    }
     //Registrar el pago de un cliente
-    public void registrarPago(Cliente cliente, float cantidad){
+    public void registrarPago(Cliente cliente, float cantidad)
+    {
         sqlite_cmd = conexion.CreateCommand();
         conexion.Open();
         sqlite_cmd.CommandText = $"insert into pago values(@dni,@fecha,@cantidad)";
         sqlite_cmd.Parameters.AddWithValue("@dni", cliente.dni);
-        sqlite_cmd.Parameters.AddWithValue("@fecha",DateTime.Now.ToString("d", CultureInfo.GetCultureInfo("es-ES")));
+        sqlite_cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("d", CultureInfo.GetCultureInfo("es-ES")));
         sqlite_cmd.Parameters.AddWithValue("@cantidad", cantidad);
         sqlite_cmd.ExecuteReader();
         conexion.Close();
     }
 
     //Registrar venta fisica en local
-    public void registrarVenta(Venta venta){
+    public void registrarVenta(Venta venta)
+    {
+        sqlite_cmd = conexion.CreateCommand();
+        conexion.Open();
+        sqlite_cmd.CommandText = $"insert into venta(fecha) values(@fecha)";
+        sqlite_cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("d", CultureInfo.GetCultureInfo("es-ES")));
+        sqlite_cmd.ExecuteReader();
+        int _id_venta = (int)conexion.LastInsertRowId;
+        venta.productos.ForEach(tupla =>
+        {
             sqlite_cmd = conexion.CreateCommand();
-            conexion.Open();
-            sqlite_cmd.CommandText = $"insert into venta(fecha) values(@fecha)";
-            sqlite_cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("d", CultureInfo.GetCultureInfo("es-ES")));
+            sqlite_cmd.CommandText = $"insert into venta_producto values(@id_venta,@id_producto,@cantidad)";
+            sqlite_cmd.Parameters.AddWithValue("@id_venta", _id_venta);
+            sqlite_cmd.Parameters.AddWithValue("@id_producto", tupla.Item1.id_producto);
+            sqlite_cmd.Parameters.AddWithValue("@cantidad", tupla.Item2);
             sqlite_cmd.ExecuteReader();
-            int _id_venta = (int)conexion.LastInsertRowId;
-            venta.productos.ForEach(tupla =>
-            {
-                sqlite_cmd = conexion.CreateCommand();
-                sqlite_cmd.CommandText = $"insert into venta_producto values(@id_venta,@id_producto,@cantidad)";
-                sqlite_cmd.Parameters.AddWithValue("@id_venta", _id_venta);
-                sqlite_cmd.Parameters.AddWithValue("@id_producto", tupla.Item1.id_producto);
-                sqlite_cmd.Parameters.AddWithValue("@cantidad", tupla.Item2);
-                sqlite_cmd.ExecuteReader();
-            });
-            conexion.Close();
+        });
+        conexion.Close();
     }
 
     //Registra excepcion para entrega de pedidos habituales
-    public void  registrarExcepcion(int id_pedido_habitual, DateTime fecha){
-        sqlite_cmd = conexion.CreateCommand();
+    public void registrarExcepcion(int id_pedido_habitual, DateTime fecha)
+    {
+        try
+        {
+            sqlite_cmd = conexion.CreateCommand();
+            conexion.Open();
+            sqlite_cmd.CommandText = $"insert into excepcion values(@id_pedido_hab,@fecha)";
+            sqlite_cmd.Parameters.AddWithValue("@fecha", fecha.ToString("d", CultureInfo.GetCultureInfo("es-ES")));
+            sqlite_cmd.Parameters.AddWithValue("@id_pedido_hab", id_pedido_habitual);
+            sqlite_cmd.ExecuteReader();
+        }
+        catch (SQLiteException ex)
+        {
+            throw;
+        }
+        finally
+        {
+            conexion.Close();
+        }
+
+    }
+}
+
+public class Deletes
+{
+    SQLiteConnection conexion;
+
+    public Deletes(SQLiteConnection conexion)
+    {
+        this.conexion = conexion;
+    }
+
+    SQLiteDataReader sqlite_datareader;
+
+    SQLiteCommand sqlite_cmd;
+
+    public void cancelarPedido(Pedido pedido)
+    {
         conexion.Open();
-        sqlite_cmd.CommandText = $"insert into excepcion values(@id_pedido_hab,@fecha)";
-        sqlite_cmd.Parameters.AddWithValue("@fecha",fecha.ToString("d", CultureInfo.GetCultureInfo("es-ES")));
-        sqlite_cmd.Parameters.AddWithValue("@id_pedido_hab", id_pedido_habitual);
-        sqlite_cmd.ExecuteReader();
+        sqlite_cmd = conexion.CreateCommand();
+        sqlite_cmd.CommandText = $"delete from pedido_producto where id_pedido={pedido.id_pedido}";
+        sqlite_datareader = sqlite_cmd.ExecuteReader();
+        sqlite_cmd = conexion.CreateCommand();
+        sqlite_cmd.CommandText = $"delete from pedido where id_pedido={pedido.id_pedido}";
+        sqlite_datareader = sqlite_cmd.ExecuteReader();
+        conexion.Close();
+    }
+
+    public void eliminarPedidoHabitual(PedidoHabitual ped){
+        conexion.Open();
+        sqlite_cmd = conexion.CreateCommand();
+        sqlite_cmd.CommandText = $"delete from pedido_hab_producto where id_pedido_habitual={ped.id_pedido_habitual}";
+        sqlite_datareader = sqlite_cmd.ExecuteReader();
+        sqlite_cmd = conexion.CreateCommand();
+        sqlite_cmd.CommandText = $"delete from pedido_habitual where id_pedido_habitual={ped.id_pedido_habitual}";
+        sqlite_datareader = sqlite_cmd.ExecuteReader();
         conexion.Close();
     }
 }
 
 
-public class Updates{
+public class Updates
+{
     SQLiteConnection conexion;
 
     public Updates(SQLiteConnection conexion)
@@ -305,9 +407,10 @@ public class Updates{
 
     SQLiteCommand sqlite_cmd;
 
-    
+
     //Actualiza entrega pedido
-    public void actualizarEntregaPedido(Pedido pedido){
+    public void actualizarEntregaPedido(Pedido pedido)
+    {
         conexion.Open();
         sqlite_cmd = conexion.CreateCommand();
         sqlite_cmd.CommandText = $"update pedido set entregado=1 where id_pedido={pedido.id_pedido}";
@@ -316,7 +419,8 @@ public class Updates{
     }
 
     //Actualiza a pagado el estado de los pedidos entregados de un cliente
-    public void pagarPedidosEntregadosACliente(Cliente cliente){
+    public void pagarPedidosEntregadosACliente(Cliente cliente)
+    {
         conexion.Open();
         sqlite_cmd = conexion.CreateCommand();
         sqlite_cmd.CommandText = $"update pedido set pagado=1 where dni='{cliente.dni}' and entregado=1";

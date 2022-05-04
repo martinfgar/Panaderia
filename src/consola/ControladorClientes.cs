@@ -1,5 +1,6 @@
 using Sistema;
 using modelos;
+using System.Data.SQLite;
 namespace consola;
 public class ControladorClientes{
     GestorPanaderia gestor;
@@ -34,10 +35,8 @@ public class ControladorClientes{
         }
     }
     public void registrarCliente(){
-        string _dni = vista.TryObtenerDatoDeTipo<string>("Introduzca el DNI");
-        if (gestor.dnisClientes().Contains(_dni)){
-            vista.Mostrar("Ya existe un cliente con ese DNI",ConsoleColor.Red);
-        }else{
+        try{
+            string _dni = vista.TryObtenerDatoDeTipo<string>("Introduzca el DNI");
             string _nombre = vista.TryObtenerDatoDeTipo<string>("Introduzca el nombre");
             string _direccion = vista.TryObtenerDatoDeTipo<string>("Introduzca la direccion");
             Cliente cliente = new Cliente{
@@ -47,7 +46,11 @@ public class ControladorClientes{
             };
             gestor.registrarCliente(cliente);
             vista.Mostrar("Cliente registrado correctamente",ConsoleColor.Green);
+        } catch(SQLiteException ex){
+            vista.Mostrar("Ya hay un cliente con ese DNI",ConsoleColor.Red);
         }
+        
+        
     }
 
     public void verDeudasCliente(){
