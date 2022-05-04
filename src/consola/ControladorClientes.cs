@@ -15,7 +15,6 @@ public class ControladorClientes{
             {"Registrar Nuevo Cliente",registrarCliente},
             {"Ver deudas de clientes", verDeudasCliente},
             {"Saldar deudas de cliente",saldarDeudasCliente},
-            {"Volver atras",volver}
         };
     }
 
@@ -25,7 +24,8 @@ public class ControladorClientes{
         while (true)
         {
             try
-            {
+            {   
+                vista.Mostrar("Puede ir atras escribiendo 'fin'", ConsoleColor.Cyan);
                 string eleccion = vista.TryObtenerElementoDeLista("Operaciones con clientes", casosDeUso.Keys.ToList(), "Elija una operacion");
                 casosDeUso[eleccion].Invoke();
                 vista.MostrarYReturn("Pulsa <Return> para continuar");

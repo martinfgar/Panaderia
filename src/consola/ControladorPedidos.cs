@@ -20,8 +20,7 @@ public class ControladorPedidos
             {"Ver pedidos para una fecha especifica",verPedidosFecha},
             {"Crear pedido habitual",crearPedidoHabitual},
             {"Eliminar pedido habitual",eliminarPedidoHabitual},
-            {"Cancelar pedido habitual para dia concreto (mínimo 2 dias de antelación)", crearExcepcion},
-            {"Volver atras",volver}
+            {"Cancelar pedido habitual para dia concreto (mínimo 2 dias de antelación)", crearExcepcion}
         };
     }
 
@@ -31,7 +30,8 @@ public class ControladorPedidos
         while (true)
         {
             try
-            {
+            {   
+                vista.Mostrar("Puede ir atras escribiendo 'fin'", ConsoleColor.Cyan);
                 string eleccion = vista.TryObtenerElementoDeLista("Operaciones con pedidos", casosDeUso.Keys.ToList(), "Elija una operacion");
                 casosDeUso[eleccion].Invoke();
                 vista.MostrarYReturn("Pulsa <Return> para continuar");
@@ -210,8 +210,5 @@ public class ControladorPedidos
         gestor.eliminarPedido(ped);
         vista.Mostrar("Pedido cancelado", ConsoleColor.Green);
     }
-    public void volver()
-    {
-        throw new Exception("Menu principal");
-    }
+
 }

@@ -18,12 +18,13 @@ public class GestorPanaderia
         listaProductos = sel.obtenerProductos();
     }
 
-    //Este metodo se ejecuta al iniciar el programa, añade los pedidos diarios cuando no tienen excepcion.
+    //Este metodo se ejecuta al iniciar el programa, añade los pedidos habituales (que no tengan excepcion para hoy) a pedidos
     private void anadirHabitualesDeHoy(){
         List<int> excepciones = sel.id_pedidos__habituales_excepcionesHoy();
         List<PedidoHabitual> pedidosASumar = sel.pedidosHabituales().FindAll(pedido => !excepciones.Contains(pedido.id_pedido_habitual));
         pedidosASumar.ForEach(pedido =>{
             try{
+                
                 ins.registrarPedido(
                 new Pedido{
                     productos=pedido.productos,
@@ -33,8 +34,9 @@ public class GestorPanaderia
                     pagado=false
                 }
             );
-            }catch{}
-            
+            }catch{
+                //Puede ser que el programa se haya ejecutado de antes y ya esten introducidos
+            }
         });
     }
 
@@ -100,6 +102,7 @@ public class GestorPanaderia
         } 
     }
 
+    //Este metodo elimina un pedido
     public void eliminarPedido(Pedido pedido){
         del.cancelarPedido(pedido);
     }

@@ -18,7 +18,7 @@ public class Controlador
             {"Clientes", controladorClientes},
             {"Finanzas",controladorFinanzas},
             {"Producción",controladorProduccion},
-            {"Venta en panaderia",controladorVentas}
+            {"Venta en panaderia",venderProductos},
         };
     }
 
@@ -27,6 +27,7 @@ public class Controlador
         vista.LimpiarPantalla();
         while (true)
         {
+            vista.Mostrar("Para ayudar con la estimación de gastos, al producir panes introduzca los datos en el apartado 'Producción'",ConsoleColor.Blue);
             try
             {
                 string eleccion = vista.TryObtenerElementoDeLista("Operaciones disponibles", casosDeUso.Keys.ToList(), "Elija una operacion");
@@ -43,7 +44,10 @@ public class Controlador
         controladorPedidos.Run();
     }
 
-    public void controladorProduccion(){}
+    public void controladorProduccion(){
+        ControladorProduccion controladorProduccion = new ControladorProduccion(gestor);
+        controladorProduccion.Run();
+    }
     public void controladorClientes(){
         ControladorClientes controladorClientes = new ControladorClientes(gestor);
         controladorClientes.Run();
@@ -53,9 +57,27 @@ public class Controlador
 
     }
 
-    public void controladorVentas(){
-        ControladorVentas controladorVentas = new ControladorVentas(gestor);
-        controladorVentas.Run();
+    public void venderProductos(){
+       List<(Producto,int)> _productos = new();
+       try{
+           while(true){
+               Producto prod = vista.TryObtenerElementoDeLista<Producto>("Lista de productos:",gestor.listaProductos,"Elija producto");
+               int cantidad = vista.TryObtenerValorEnRangoInt(1,999,"Elija la cantidad");
+               _productos.Add((prod,cantidad));
+               vista.LimpiarPantalla();
+               vista.MostrarDiccionario<Producto,int>("Lista de la compra",_productos.ToDictionary(x => x.Item1, x => x.Item2));
+               if (!vista.Confirmar("Desea añadir más productos?")){
+                   break;
+               } 
+           } 
+           if(_productos.Count>0){
+               gestor.venderProductos(new Venta{productos=_productos});
+               vista.Mostrar("Transaccion realizada con exito",ConsoleColor.Green);
+           }
+       }catch{
+           vista.Mostrar("No puede añadir el mismo producto dos veces",ConsoleColor.Red);
+       }
+       
     }
 
     
