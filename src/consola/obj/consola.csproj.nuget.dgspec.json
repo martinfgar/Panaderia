@@ -1,153 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\consola.csproj": {}
+    "/home/martin/Escritorio/Panaderia/src/consola/consola.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\consola.csproj": {
+    "/home/martin/Escritorio/Panaderia/src/Repo/Repo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\consola.csproj",
-        "projectName": "consola",
-        "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\consola.csproj",
-        "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
-              },
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj"
-              },
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
-        "projectName": "lib",
-        "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
-        "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
+        "projectUniqueName": "/home/martin/Escritorio/Panaderia/src/Repo/Repo.csproj",
         "projectName": "Repo",
-        "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
-        "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\obj\\",
+        "projectPath": "/home/martin/Escritorio/Panaderia/src/Repo/Repo.csproj",
+        "packagesPath": "/home/martin/.nuget/packages/",
+        "outputPath": "/home/martin/Escritorio/Panaderia/src/Repo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/martin/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
+              "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj": {
+                "projectPath": "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj"
               }
             }
           }
@@ -181,44 +61,48 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.2, 6.0.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj": {
+    "/home/martin/Escritorio/Panaderia/src/Sistema/Sistema.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj",
+        "projectUniqueName": "/home/martin/Escritorio/Panaderia/src/Sistema/Sistema.csproj",
         "projectName": "Sistema",
-        "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj",
-        "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\obj\\",
+        "projectPath": "/home/martin/Escritorio/Panaderia/src/Sistema/Sistema.csproj",
+        "packagesPath": "/home/martin/.nuget/packages/",
+        "outputPath": "/home/martin/Escritorio/Panaderia/src/Sistema/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/martin/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
+              "/home/martin/Escritorio/Panaderia/src/Repo/Repo.csproj": {
+                "projectPath": "/home/martin/Escritorio/Panaderia/src/Repo/Repo.csproj"
               },
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj"
+              "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj": {
+                "projectPath": "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj"
               }
             }
           }
@@ -242,12 +126,144 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.2, 6.0.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/martin/Escritorio/Panaderia/src/consola/consola.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/martin/Escritorio/Panaderia/src/consola/consola.csproj",
+        "projectName": "consola",
+        "projectPath": "/home/martin/Escritorio/Panaderia/src/consola/consola.csproj",
+        "packagesPath": "/home/martin/.nuget/packages/",
+        "outputPath": "/home/martin/Escritorio/Panaderia/src/consola/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/martin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/martin/Escritorio/Panaderia/src/Repo/Repo.csproj": {
+                "projectPath": "/home/martin/Escritorio/Panaderia/src/Repo/Repo.csproj"
+              },
+              "/home/martin/Escritorio/Panaderia/src/Sistema/Sistema.csproj": {
+                "projectPath": "/home/martin/Escritorio/Panaderia/src/Sistema/Sistema.csproj"
+              },
+              "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj": {
+                "projectPath": "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.2, 6.0.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj",
+        "projectName": "lib",
+        "projectPath": "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj",
+        "packagesPath": "/home/martin/.nuget/packages/",
+        "outputPath": "/home/martin/Escritorio/Panaderia/src/lib/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/martin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.2, 6.0.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
         }
       }
     }

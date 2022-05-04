@@ -14,14 +14,15 @@ public class GestorPanaderia
     public List<Producto> listaProductos{get;set;}
     
     public GestorPanaderia(){
-        anadirHabitualesDeHoy();
         listaProductos = sel.obtenerProductos();
+        anadirHabitualesDeManana();
+        
     }
 
     //Este metodo se ejecuta al iniciar el programa, añade los pedidos habituales (que no tengan excepcion para hoy) a pedidos
-    private void anadirHabitualesDeHoy(){
-        List<int> excepciones = sel.id_pedidos__habituales_excepcionesHoy();
-        List<PedidoHabitual> pedidosASumar = sel.pedidosHabituales().FindAll(pedido => !excepciones.Contains(pedido.id_pedido_habitual));
+    private void anadirHabitualesDeManana(){
+        List<int> excepciones = sel.id_pedidos_excepcionesFecha(DateTime.Today.AddDays(1));
+        List<PedidoHabitual> pedidosASumar = listaPedidosHabituales().FindAll(pedido => !excepciones.Contains(pedido.id_pedido_habitual));
         pedidosASumar.ForEach(pedido =>{
             try{
                 
@@ -29,20 +30,29 @@ public class GestorPanaderia
                 new Pedido{
                     productos=pedido.productos,
                     dni = pedido.dni,
-                    fecha = DateTime.Today,
+                    fecha = DateTime.Today.AddDays(1),
                     entregado = false,
                     pagado=false
                 }
             );
             }catch{
-                //Puede ser que el programa se haya ejecutado de antes y ya esten introducidos
+                //Puede ser que el metodo se haya ejecutado de antes y ya esten introducidos (SQLiteException)
             }
         });
     }
 
-    //Devuelve la lista de los pedidos marcados como habituales
+    //Devuelve la lista de los pedidos marcados como habituales y antes de ello añade todos los datos de los productos en el pedido
     public List<PedidoHabitual> listaPedidosHabituales(){
-        return sel.pedidosHabituales();
+        List<PedidoHabitual> listaPedidosHab = sel.pedidosHabituales();
+        List<Cliente> clientes = listaDeClientes();
+        listaPedidosHab.ForEach(pedido =>{
+            pedido.cliente = clientes.Find(client => pedido.dni == client.dni);
+            pedido.productos = new();
+            pedido.id_prod_cantidad.ForEach(producto =>{
+                pedido.productos.Add((listaProductos.Find(prod => prod.id_producto == producto.Item1),producto.Item2));
+            });
+        });
+        return listaPedidosHab;
     }
     //Devuelve la lista de pedidos, y antes de ello añade todos los datos de los productos en el pedido
     public List<Pedido> pedidosDeFecha(DateTime fecha){
@@ -107,6 +117,19 @@ public class GestorPanaderia
         del.cancelarPedido(pedido);
     }
 
+    //Dinero de ventas en rango de fechas
+    public float dineroVentasRangoFechas(DateTime inicio, DateTime final){
+        float dinero =0;
+        while(inicio.CompareTo(final)<=0){
+            List<(int,int)> ventas = sel.ventasIDProductosEnFecha(inicio);
+            ventas.ForEach(tupla=>{
+                dinero+=tupla.Item2*listaProductos.Find(x=>x.id_producto==tupla.Item1).precio;
+            });
+            inicio = inicio.AddDays(1);
+        }
+        return dinero;
+    }
+
     //Dinero obtenido hoy gracias a pedidos
     public float dineroHoyPedidos(){
         float ventas =0;
@@ -156,6 +179,8 @@ public class GestorPanaderia
     public void registrarPedidoHabitual(PedidoHabitual pedido){
         try{
             ins.registrarPedidoHabitual(pedido);
+            //Para que figure en los pedidos de mañana
+            anadirHabitualesDeManana();
         }catch(SQLiteException ex){
             throw;
         }

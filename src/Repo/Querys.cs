@@ -113,26 +113,16 @@ public class Selects
             {
                 id_pedido_habitual = _id_pedido,
                 dni = sqlite_datareader.GetString(1),
-                productos = new()
+                id_prod_cantidad=new(),
             };
             sqlite_cmd = conexion.CreateCommand();
-            sqlite_cmd.CommandText = $"select * from pedido_hab_producto inner join producto on pedido_hab_producto.id_producto=producto.id_producto where id_pedido_habitual={_id_pedido}";
+            sqlite_cmd.CommandText = $"select * from pedido_hab_producto where id_pedido_habitual={_id_pedido}";
             SQLiteDataReader reader2;
             reader2 = sqlite_cmd.ExecuteReader();
 
             while (reader2.Read())
             {
-                (Producto, int) tup = (
-                    new Producto
-                    {
-                        id_producto = reader2.GetInt32(1),
-                        nombre = reader2.GetString(4),
-                        precio = reader2.GetFloat(5),
-                        kg_harina = reader2.GetFloat(6)
-                    },
-                    reader2.GetInt32(2)
-                );
-                pedido.productos.Add(tup);
+                pedido.id_prod_cantidad.Add((reader2.GetInt32(1),reader2.GetInt32(2)));
             }
             lista.Add(pedido);
         }
@@ -141,12 +131,12 @@ public class Selects
     }
 
     //Obtiene las excepciones a pedidos habituales para el dia de hoy
-    public List<int> id_pedidos__habituales_excepcionesHoy()
+    public List<int> id_pedidos_excepcionesFecha(DateTime fecha)
     {
         List<int> lista = new();
         conexion.Open();
         sqlite_cmd = conexion.CreateCommand();
-        sqlite_cmd.CommandText = $"select id_pedido_habitual from excepcion where fecha='{DateTime.Today.ToString("d", CultureInfo.GetCultureInfo("es-ES"))}'";
+        sqlite_cmd.CommandText = $"select id_pedido_habitual from excepcion where fecha='{fecha.ToString("d", CultureInfo.GetCultureInfo("es-ES"))}'";
         sqlite_datareader = sqlite_cmd.ExecuteReader();
         while (sqlite_datareader.Read())
         {
@@ -190,6 +180,22 @@ public class Selects
         conexion.Close();
         return lista;
     }
+
+    //Obtiene lista de productos y cantidad vendidos en tienda en una fecha dada.
+    public List<(int,int)> ventasIDProductosEnFecha(DateTime fecha){
+        List<(int,int)> lista = new();
+        conexion.Open();
+        sqlite_cmd = conexion.CreateCommand();
+        sqlite_cmd.CommandText = $"select id_producto,cantidad from venta inner join venta_producto on venta.id_venta=venta_producto.id_venta where fecha='{fecha.ToString("d", CultureInfo.GetCultureInfo("es-ES"))}'";
+        sqlite_datareader = sqlite_cmd.ExecuteReader();
+        while (sqlite_datareader.Read())
+        {
+            lista.Add((sqlite_datareader.GetInt32(0),sqlite_datareader.GetInt32(1)));
+        }
+        conexion.Close();
+        return lista;
+    }
+
 }
 
 public class Inserts

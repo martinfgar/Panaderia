@@ -19,6 +19,7 @@ public class Controlador
             {"Finanzas",controladorFinanzas},
             {"Producción",controladorProduccion},
             {"Venta en panaderia",venderProductos},
+            {"DineroVentasEnRango",dineroVentas}
         };
     }
 
@@ -78,6 +79,12 @@ public class Controlador
            vista.Mostrar("No puede añadir el mismo producto dos veces",ConsoleColor.Red);
        }
        
+    }
+
+    public void dineroVentas(){
+        DateTime inicio = vista.TryObtenerFecha("Fecha 1:");
+        DateTime fin = vista.TryObtenerFecha("Fecha 2:");
+        vista.Mostrar($"{gestor.dineroVentasRangoFechas(inicio,fin)}€");
     }
 
     
