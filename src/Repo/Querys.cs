@@ -354,6 +354,31 @@ public class Inserts
         }
 
     }
+
+    //Registrar la produccion del dia
+    public void registrarProduccion(List<(Producto,int)> productos, float horas_horno){
+        try{
+            sqlite_cmd = conexion.CreateCommand();
+            conexion.Open();
+            sqlite_cmd.CommandText = $"insert into producido values(@fecha,@horas)";
+            sqlite_cmd.Parameters.AddWithValue("@fecha", DateTime.Today.ToString("d",CultureInfo.GetCultureInfo("es-ES")));
+            sqlite_cmd.Parameters.AddWithValue("@horas", horas_horno);
+            sqlite_cmd.ExecuteReader();
+            productos.ForEach(tupla =>
+            {
+                sqlite_cmd = conexion.CreateCommand();
+                sqlite_cmd.CommandText = $"insert into producido_producto values(@fecha,@id_producto,@cantidad)";
+                sqlite_cmd.Parameters.AddWithValue("@fecha", DateTime.Today.ToString("d",CultureInfo.GetCultureInfo("es-ES")));
+                sqlite_cmd.Parameters.AddWithValue("@id_producto", tupla.Item1.id_producto);
+                sqlite_cmd.Parameters.AddWithValue("@cantidad", tupla.Item2);
+                sqlite_cmd.ExecuteReader();
+            });
+        }catch (SQLiteException ex){
+            throw;
+        }finally{
+            conexion.Close();
+        }
+    }
 }
 
 public class Deletes

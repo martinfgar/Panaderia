@@ -165,4 +165,13 @@ public class GestorPanaderia
     public void eliminarPedidoHabitual(PedidoHabitual pedido){
         del.eliminarPedidoHabitual(pedido);
     }
+
+    //Este metodo registra la produccion del dia 
+    public void registrarProduccion(List<(Producto,int)> productos, float horas_horno){
+        try{
+            ins.registrarProduccion(productos,horas_horno);
+        }catch(SQLiteException ex){
+            throw;
+        }
+    }
 }
