@@ -40,6 +40,7 @@ public class Selects
         conexion.Close();
         return lista;
     }
+
     //Obtiene la lista de productos
     public List<Producto> obtenerProductos()
     {
@@ -61,7 +62,6 @@ public class Selects
         conexion.Close();
         return lista;
     }
-
 
     //Obtiene la lista de pedidos programados para hoy.
     public List<Pedido> obtenerPedidosHoy()
@@ -256,6 +256,37 @@ public class Inserts
         sqlite_cmd.Parameters.AddWithValue("@dni", cliente.dni);
         sqlite_cmd.Parameters.AddWithValue("@fecha",DateTime.Now.ToString("d", CultureInfo.GetCultureInfo("es-ES")));
         sqlite_cmd.Parameters.AddWithValue("@cantidad", cantidad);
+        sqlite_cmd.ExecuteReader();
+        conexion.Close();
+    }
+
+    //Registrar venta fisica en local
+    public void registrarVenta(Venta venta){
+            sqlite_cmd = conexion.CreateCommand();
+            conexion.Open();
+            sqlite_cmd.CommandText = $"insert into venta(fecha) values(@fecha)";
+            sqlite_cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("d", CultureInfo.GetCultureInfo("es-ES")));
+            sqlite_cmd.ExecuteReader();
+            int _id_venta = (int)conexion.LastInsertRowId;
+            venta.productos.ForEach(tupla =>
+            {
+                sqlite_cmd = conexion.CreateCommand();
+                sqlite_cmd.CommandText = $"insert into venta_producto values(@id_venta,@id_producto,@cantidad)";
+                sqlite_cmd.Parameters.AddWithValue("@id_venta", _id_venta);
+                sqlite_cmd.Parameters.AddWithValue("@id_producto", tupla.Item1.id_producto);
+                sqlite_cmd.Parameters.AddWithValue("@cantidad", tupla.Item2);
+                sqlite_cmd.ExecuteReader();
+            });
+            conexion.Close();
+    }
+
+    //Registra excepcion para entrega de pedidos habituales
+    public void  registrarExcepcion(int id_pedido_habitual, DateTime fecha){
+        sqlite_cmd = conexion.CreateCommand();
+        conexion.Open();
+        sqlite_cmd.CommandText = $"insert into excepcion values(@id_pedido_hab,@fecha)";
+        sqlite_cmd.Parameters.AddWithValue("@fecha",fecha.ToString("d", CultureInfo.GetCultureInfo("es-ES")));
+        sqlite_cmd.Parameters.AddWithValue("@id_pedido_hab", id_pedido_habitual);
         sqlite_cmd.ExecuteReader();
         conexion.Close();
     }

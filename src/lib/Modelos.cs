@@ -44,13 +44,13 @@ public class Pedido{
 public class PedidoHabitual{
     public int id_pedido_habitual{get;set;}
     public string dni{get;set;}
-    public Cliente cliente{get;set;}
+
     public List<(Producto, int)> productos{get;set;}
-}
-public class Excepcion{
-    public int id_pedido_habitual{get;set;}
-    public DateTime fecha{get;set;}
-    public PedidoHabitual pedido{get;set;}
+
+    public override string ToString()
+    {
+        return $"ID: {id_pedido_habitual}, DNI: {dni}";
+    }
 }
 public class Pago{
     public string dni{get;set;}

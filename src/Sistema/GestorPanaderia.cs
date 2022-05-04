@@ -1,4 +1,5 @@
 ﻿using Repo;
+using System.Linq;
 using modelos;
 namespace Sistema;
 public class GestorPanaderia
@@ -8,7 +9,7 @@ public class GestorPanaderia
     Inserts ins = new Inserts(con.crearConexion());
     
     Updates upd = new Updates(con.crearConexion());
-    private List<Producto> listaProductos;
+    public List<Producto> listaProductos{get;set;}
     
     public GestorPanaderia(){
         anadirHabitualesDeHoy();
@@ -32,7 +33,10 @@ public class GestorPanaderia
         });
     }
 
-  
+    //Devuelve la lista de los pedidos marcados como habituales
+    public List<PedidoHabitual> listaPedidosHabituales(){
+        return sel.pedidosHabituales();
+    }
     //Devuelve la lista de pedidos, y antes de ello añade todos los datos de los productos en el pedido
     public List<Pedido> pedidosDeHoy(){
         List<Pedido> listaPedidosHoy = sel.obtenerPedidosHoy();
@@ -47,7 +51,12 @@ public class GestorPanaderia
         return listaPedidosHoy;
     }
 
-      //Pedidos de hoy sin entregar
+    //Lista de dnis de clientes 
+    public List<string> dnisClientes(){
+        return listaDeClientes().Select(o => o.dni).ToList();
+    }
+
+     //Pedidos de hoy sin entregar
     public List<Pedido> pedidosPorEntregarHoy(){
         return pedidosDeHoy().FindAll(pedido => !pedido.entregado);   
     }
@@ -81,7 +90,6 @@ public class GestorPanaderia
         ins.registrarPedido(pedido);
     }
 
-
     //Dinero obtenido hoy gracias a pedidos
     public float dineroHoyPedidos(){
         float ventas =0;
@@ -90,7 +98,6 @@ public class GestorPanaderia
         }
         return ventas;
     }
-
 
     //Entregar pedido
     public void entregarPedido(Pedido pedido){
@@ -113,5 +120,15 @@ public class GestorPanaderia
         ins.registrarPago(cliente,dineroQueDebeCliente(cliente));
         upd.pagarPedidosEntregadosACliente(cliente);
         
+    }
+
+    //Para vender productos en panaderia
+    public void venderProductos(Venta venta){
+        ins.registrarVenta(venta);
+    }
+
+    //Registra una excepcion a un pedido habitual
+    public void registrarExcepcion(int id_pedido_hab, DateTime fecha){
+        ins.registrarExcepcion(id_pedido_hab,fecha);
     }
 }
