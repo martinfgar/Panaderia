@@ -80,8 +80,12 @@
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.acercadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.grupoFinanzas = new System.Windows.Forms.GroupBox();
+            this.grupoPedidos = new System.Windows.Forms.GroupBox();
+            this.grupoTienda = new System.Windows.Forms.GroupBox();
             this.menuPrincipal.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuPrincipal
@@ -94,7 +98,7 @@
             this.clientes});
             this.menuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuPrincipal.Name = "menuPrincipal";
-            this.menuPrincipal.Size = new System.Drawing.Size(1175, 24);
+            this.menuPrincipal.Size = new System.Drawing.Size(1315, 24);
             this.menuPrincipal.TabIndex = 0;
             this.menuPrincipal.Text = "menuPrincipal";
             // 
@@ -175,31 +179,32 @@
             // ingresosGen
             // 
             this.ingresosGen.Name = "ingresosGen";
-            this.ingresosGen.Size = new System.Drawing.Size(163, 22);
+            this.ingresosGen.Size = new System.Drawing.Size(180, 22);
             this.ingresosGen.Text = "Ingresos";
+            this.ingresosGen.Click += new System.EventHandler(this.ingresosGen_Click);
             // 
             // gastosGen
             // 
             this.gastosGen.Name = "gastosGen";
-            this.gastosGen.Size = new System.Drawing.Size(163, 22);
+            this.gastosGen.Size = new System.Drawing.Size(180, 22);
             this.gastosGen.Text = "Gastos";
             // 
             // balance
             // 
             this.balance.Name = "balance";
-            this.balance.Size = new System.Drawing.Size(163, 22);
+            this.balance.Size = new System.Drawing.Size(180, 22);
             this.balance.Text = "Balance";
             // 
             // ingresosTienda
             // 
             this.ingresosTienda.Name = "ingresosTienda";
-            this.ingresosTienda.Size = new System.Drawing.Size(163, 22);
+            this.ingresosTienda.Size = new System.Drawing.Size(180, 22);
             this.ingresosTienda.Text = "Ingresos Tienda";
             // 
             // ingresosPedidos
             // 
             this.ingresosPedidos.Name = "ingresosPedidos";
-            this.ingresosPedidos.Size = new System.Drawing.Size(163, 22);
+            this.ingresosPedidos.Size = new System.Drawing.Size(180, 22);
             this.ingresosPedidos.Text = "Ingresos Pedidos";
             // 
             // produccion
@@ -214,13 +219,13 @@
             // aProducir
             // 
             this.aProducir.Name = "aProducir";
-            this.aProducir.Size = new System.Drawing.Size(174, 22);
+            this.aProducir.Size = new System.Drawing.Size(180, 22);
             this.aProducir.Text = "Pedidos a producir";
             // 
             // anotarProduccion
             // 
             this.anotarProduccion.Name = "anotarProduccion";
-            this.anotarProduccion.Size = new System.Drawing.Size(174, 22);
+            this.anotarProduccion.Size = new System.Drawing.Size(180, 22);
             this.anotarProduccion.Text = "Anotar Producción";
             // 
             // clientes
@@ -236,20 +241,20 @@
             // registrarCliente
             // 
             this.registrarCliente.Name = "registrarCliente";
-            this.registrarCliente.Size = new System.Drawing.Size(146, 22);
+            this.registrarCliente.Size = new System.Drawing.Size(180, 22);
             this.registrarCliente.Text = "Nuevo";
             this.registrarCliente.Click += new System.EventHandler(this.registrarCliente_Click);
             // 
             // deudasClientes
             // 
             this.deudasClientes.Name = "deudasClientes";
-            this.deudasClientes.Size = new System.Drawing.Size(146, 22);
+            this.deudasClientes.Size = new System.Drawing.Size(180, 22);
             this.deudasClientes.Text = "Deudas";
             // 
             // pagarDeudaCliente
             // 
             this.pagarDeudaCliente.Name = "pagarDeudaCliente";
-            this.pagarDeudaCliente.Size = new System.Drawing.Size(146, 22);
+            this.pagarDeudaCliente.Size = new System.Drawing.Size(180, 22);
             this.pagarDeudaCliente.Text = "Pagar Deudas";
             // 
             // archivoToolStripMenuItem
@@ -397,27 +402,67 @@
             this.acercadeToolStripMenuItem.Name = "acercadeToolStripMenuItem";
             this.acercadeToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
-            // label1
+            // tableLayoutPanel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(395, 191);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
+            this.tableLayoutPanel1.Controls.Add(this.grupoFinanzas, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.grupoPedidos, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.grupoTienda, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1315, 669);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // grupoFinanzas
+            // 
+            this.grupoFinanzas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grupoFinanzas.Location = new System.Drawing.Point(496, 3);
+            this.grupoFinanzas.Name = "grupoFinanzas";
+            this.grupoFinanzas.Size = new System.Drawing.Size(816, 328);
+            this.grupoFinanzas.TabIndex = 0;
+            this.grupoFinanzas.TabStop = false;
+            this.grupoFinanzas.Text = "Finanzas";
+            // 
+            // grupoPedidos
+            // 
+            this.grupoPedidos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grupoPedidos.Location = new System.Drawing.Point(496, 337);
+            this.grupoPedidos.Name = "grupoPedidos";
+            this.grupoPedidos.Size = new System.Drawing.Size(816, 329);
+            this.grupoPedidos.TabIndex = 1;
+            this.grupoPedidos.TabStop = false;
+            this.grupoPedidos.Text = "Pedidos";
+            // 
+            // grupoTienda
+            // 
+            this.grupoTienda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grupoTienda.Location = new System.Drawing.Point(3, 3);
+            this.grupoTienda.Name = "grupoTienda";
+            this.tableLayoutPanel1.SetRowSpan(this.grupoTienda, 2);
+            this.grupoTienda.Size = new System.Drawing.Size(487, 663);
+            this.grupoTienda.TabIndex = 2;
+            this.grupoTienda.TabStop = false;
+            this.grupoTienda.Text = "Tienda";
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 646);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1315, 693);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuPrincipal);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Panaderia";
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,6 +522,9 @@
         private ToolStripMenuItem registrarCliente;
         private ToolStripMenuItem deudasClientes;
         private ToolStripMenuItem pagarDeudaCliente;
-        private Label label1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private GroupBox grupoFinanzas;
+        private GroupBox grupoPedidos;
+        private GroupBox grupoTienda;
     }
 }

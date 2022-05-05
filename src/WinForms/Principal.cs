@@ -1,3 +1,4 @@
+using System.Windows.Forms.DataVisualization.Charting;
 namespace WinForms
 {
     public partial class Principal : Form
@@ -10,20 +11,25 @@ namespace WinForms
 
         private void registrarCliente_Click(object sender, EventArgs e)
         {
-            var fecha1 = new System.Windows.Forms.DateTimePicker();
-            var fecha2 = new System.Windows.Forms.DateTimePicker();
-            VentanaFechas f = new VentanaFechas(fecha1, fecha2);
-
-            var result = f.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                label1.Text = fecha1.Value.ToString("yyyy-MM-dd");
-                //get selected date
-            }
+            
+            
 
 
         }
 
-       
+        private void ingresosGen_Click(object sender, EventArgs e)
+        {
+            VentanaFechasSinLim f = new VentanaFechasSinLim();
+
+            var result = f.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                DateTime fecha1 = f.fecha_inicio.Value;
+                DateTime fecha2 = f.fecha_final.Value;
+                
+               
+                //get selected date
+            }
+        }
     }
 }

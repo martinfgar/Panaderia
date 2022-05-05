@@ -1,0 +1,12 @@
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\bin\Debug\AplicacionGrafica.exe.config
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\bin\Debug\AplicacionGrafica.exe
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\bin\Debug\AplicacionGrafica.pdb
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.csproj.AssemblyReference.cache
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.csproj.SuggestedBindingRedirects.cache
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.Principal.resources
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.Properties.Resources.resources
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.VentanaFechas.resources
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.csproj.GenerateResource.cache
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.csproj.CoreCompileInputs.cache
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.exe
+C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.pdb

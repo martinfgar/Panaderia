@@ -32,4 +32,4 @@ C:\Users\Martin\Desktop\Panaderia\src\WinForms\obj\Debug\net6.0-windows\WinForms
 C:\Users\Martin\Desktop\Panaderia\src\WinForms\obj\Debug\net6.0-windows\WinForms.genruntimeconfig.cache
 C:\Users\Martin\Desktop\Panaderia\src\WinForms\obj\Debug\net6.0-windows\ref\WinForms.dll
 C:\Users\Martin\Desktop\Panaderia\src\WinForms\obj\Debug\net6.0-windows\WinForms.Principal.resources
-C:\Users\Martin\Desktop\Panaderia\src\WinForms\obj\Debug\net6.0-windows\WinForms.VentanaFechas.resources
+C:\Users\Martin\Desktop\Panaderia\src\WinForms\obj\Debug\net6.0-windows\WinForms.VentanaFechasSinLim.resources
