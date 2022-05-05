@@ -7,11 +7,12 @@ public class ControladorPedidos
 {
     GestorPanaderia gestor;
 
-    public Vista vista = new Vista();
+    public Vista vista;
     public Dictionary<string, Action> casosDeUso;
-    public ControladorPedidos(GestorPanaderia gestor)
+    public ControladorPedidos(GestorPanaderia gestor, Vista vista)
     {
         this.gestor = gestor;
+        this.vista = vista;
 
         casosDeUso = new Dictionary<string, Action>(){
             {"Entregar Pedido",entregarPedido},

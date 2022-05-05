@@ -5,11 +5,12 @@ namespace consola;
 public class ControladorClientes{
     GestorPanaderia gestor;
 
-    public Vista vista = new Vista();
+    public Vista vista;
     public Dictionary<string, Action> casosDeUso;
-    public ControladorClientes(GestorPanaderia gestor)
+    public ControladorClientes(GestorPanaderia gestor, Vista vista)
     {
         this.gestor = gestor;
+        this.vista = vista;
 
         casosDeUso = new Dictionary<string, Action>(){
             {"Registrar Nuevo Cliente",registrarCliente},
@@ -77,9 +78,5 @@ public class ControladorClientes{
         }else{
             vista.Mostrar("El cliente no tiene deudas",ConsoleColor.Green);
         }
-    }
-
-    public void volver(){
-        throw new Exception("Menu principal");
     }
 }

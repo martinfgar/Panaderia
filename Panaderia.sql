@@ -67,7 +67,8 @@ create table venta_producto(
 );
 create table producido(
     fecha text primary key,
-    horas_horno real not null
+    horas_horno real not null,
+    gasto_electrico real
 );
 create table producido_producto(
     fecha text not null,
@@ -79,7 +80,7 @@ create table producido_producto(
 );
 
 
-
+/*
 insert into cliente values('12345678A','Miguel Gutierrez', 'Calle Azul 30, Pueblo Paleta');
 insert into cliente values('12345678B','Jaime Gutierrez', 'Calle Roja 20, Pueblo Paleto');
 insert into cliente values('12345678C','Ana Alvarez', 'Calle Verde 10, Pueblo Muela');
@@ -106,3 +107,4 @@ insert into pedido_hab_producto values(1,1,4);
 insert into pedido_habitual values(2,'12345678E');
 insert into pedido_hab_producto values(2,1,5);
 insert into excepcion values(2,'3/5/2022');
+*/

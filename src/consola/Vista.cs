@@ -7,7 +7,10 @@ using static System.Console;
 namespace consola
 {
     public class Vista
-    {
+    {   
+        public Vista(){
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+        }
         // String de cancelación de la entrada de datos.
         const string CANCELINPUT = "fin";
         // Helpers

@@ -7,10 +7,11 @@ public class ControladorProduccion{
 
      
     GestorPanaderia gestor;
-    public Vista vista = new Vista();
+    public Vista vista;
     public Dictionary<string, Action> casosDeUso;
-    public ControladorProduccion(GestorPanaderia gestor){
+    public ControladorProduccion(GestorPanaderia gestor, Vista vista){
         this.gestor=gestor;
+        this.vista = vista;
         casosDeUso = new Dictionary<string, Action>(){
             {"Ver Panes a producir hoy",mostrarPanesAProducir},
             {"Especificar producción de hoy",especificarProduccion}
@@ -23,6 +24,7 @@ public class ControladorProduccion{
         {
             try
             {
+                vista.Mostrar("Puede ir atras escribiendo 'fin'", ConsoleColor.Cyan);
                 string eleccion = vista.TryObtenerElementoDeLista("Operaciones disponibles", casosDeUso.Keys.ToList(), "Elija una operacion");
                 casosDeUso[eleccion].Invoke();
                 vista.MostrarYReturn("Pulsa <Return> para continuar");
@@ -33,7 +35,7 @@ public class ControladorProduccion{
     }
 
     public void mostrarPanesAProducir(){
-        vista.MostrarDiccionario<Producto,int>("Productos : Cantidad",gestor.aProducirHoy());
+        vista.MostrarDiccionario<Producto,int>("Productos : Cantidad",gestor.aProducirEnFecha(DateTime.Today));
     }
     public void especificarProduccion(){
         try{

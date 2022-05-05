@@ -1591,38 +1591,40 @@
     ]
   },
   "packageFolders": {
-    "/home/martin/.nuget/packages/": {}
+    "C:\\Users\\1daw3\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/martin/Escritorio/Panaderia/src/consola/consola.csproj",
+      "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\consola.csproj",
       "projectName": "consola",
-      "projectPath": "/home/martin/Escritorio/Panaderia/src/consola/consola.csproj",
-      "packagesPath": "/home/martin/.nuget/packages/",
-      "outputPath": "/home/martin/Escritorio/Panaderia/src/consola/obj/",
+      "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\consola.csproj",
+      "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/martin/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/martin/Escritorio/Panaderia/src/Repo/Repo.csproj": {
-              "projectPath": "/home/martin/Escritorio/Panaderia/src/Repo/Repo.csproj"
+            "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
+              "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
             },
-            "/home/martin/Escritorio/Panaderia/src/Sistema/Sistema.csproj": {
-              "projectPath": "/home/martin/Escritorio/Panaderia/src/Sistema/Sistema.csproj"
+            "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
+              "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj"
             },
-            "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj": {
-              "projectPath": "/home/martin/Escritorio/Panaderia/src/lib/lib.csproj"
+            "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj": {
+              "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj"
             }
           }
         }
@@ -1646,18 +1648,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.2, 6.0.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

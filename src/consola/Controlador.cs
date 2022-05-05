@@ -19,7 +19,7 @@ public class Controlador
             {"Finanzas",controladorFinanzas},
             {"Producción",controladorProduccion},
             {"Venta en panaderia",venderProductos},
-            {"DineroVentasEnRango",dineroVentas}
+
         };
     }
 
@@ -41,21 +41,22 @@ public class Controlador
     }
 
     public void controladorPedidos(){
-        ControladorPedidos controladorPedidos = new ControladorPedidos(gestor);
+        ControladorPedidos controladorPedidos = new ControladorPedidos(gestor,vista);
         controladorPedidos.Run();
     }
 
     public void controladorProduccion(){
-        ControladorProduccion controladorProduccion = new ControladorProduccion(gestor);
+        ControladorProduccion controladorProduccion = new ControladorProduccion(gestor,vista);
         controladorProduccion.Run();
     }
     public void controladorClientes(){
-        ControladorClientes controladorClientes = new ControladorClientes(gestor);
+        ControladorClientes controladorClientes = new ControladorClientes(gestor,vista);
         controladorClientes.Run();
     }
 
     public void controladorFinanzas(){
-
+        ControladorFinanzas controladorFinanzas = new ControladorFinanzas(gestor,vista);
+        controladorFinanzas.Run();
     }
 
     public void venderProductos(){
@@ -79,13 +80,5 @@ public class Controlador
            vista.Mostrar("No puede añadir el mismo producto dos veces",ConsoleColor.Red);
        }
        
-    }
-
-    public void dineroVentas(){
-        DateTime inicio = vista.TryObtenerFecha("Fecha 1:");
-        DateTime fin = vista.TryObtenerFecha("Fecha 2:");
-        vista.Mostrar($"{gestor.dineroVentasRangoFechas(inicio,fin)}€");
-    }
-
-    
+    }  
 }

@@ -196,6 +196,35 @@ public class Selects
         return lista;
     }
 
+    //Obtiene los id de productos producidos en la fecha aportada, y la cantidad
+    public List<(int,int)> produccionEnFecha(DateTime fecha){
+        List<(int,int)> lista = new();
+        conexion.Open();
+        sqlite_cmd = conexion.CreateCommand();
+        sqlite_cmd.CommandText = $"select id_producto,cantidad from producido_producto where fecha='{fecha.ToString("d", CultureInfo.GetCultureInfo("es-ES"))}'";
+        sqlite_datareader = sqlite_cmd.ExecuteReader();
+        while (sqlite_datareader.Read())
+        {
+            lista.Add((sqlite_datareader.GetInt32(0),sqlite_datareader.GetInt32(1)));
+        }
+        conexion.Close();
+        return lista;
+    }
+
+    //Obtiene lo gastado en luz en la fecha especificada
+    public float gastoLuzFecha(DateTime fecha){
+        float gasto=0;
+        conexion.Open();
+        sqlite_cmd = conexion.CreateCommand();
+        sqlite_cmd.CommandText = $"select gasto_electrico from producido where fecha='{fecha.ToString("d", CultureInfo.GetCultureInfo("es-ES"))}'";
+        sqlite_datareader = sqlite_cmd.ExecuteReader();
+        while (sqlite_datareader.Read())
+        {
+           gasto += sqlite_datareader.GetFloat(0);
+        }
+        conexion.Close();
+        return gasto;
+    }
 }
 
 public class Inserts
@@ -362,13 +391,14 @@ public class Inserts
     }
 
     //Registrar la produccion del dia
-    public void registrarProduccion(List<(Producto,int)> productos, float horas_horno){
+    public void registrarProduccion(List<(Producto,int)> productos, float horas_horno,float gasto_electrico){
         try{
             sqlite_cmd = conexion.CreateCommand();
             conexion.Open();
-            sqlite_cmd.CommandText = $"insert into producido values(@fecha,@horas)";
+            sqlite_cmd.CommandText = $"insert into producido values(@fecha,@horas,@consumo)";
             sqlite_cmd.Parameters.AddWithValue("@fecha", DateTime.Today.ToString("d",CultureInfo.GetCultureInfo("es-ES")));
             sqlite_cmd.Parameters.AddWithValue("@horas", horas_horno);
+            sqlite_cmd.Parameters.AddWithValue("@consumo",gasto_electrico);
             sqlite_cmd.ExecuteReader();
             productos.ForEach(tupla =>
             {

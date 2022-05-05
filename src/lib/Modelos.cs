@@ -54,6 +54,12 @@ public class PedidoHabitual{
 
     public List<(Producto, int)> productos{get;set;}=new();
 
+    public float total{get{
+        float precio=0;
+        productos.ForEach(tupla =>{precio+=tupla.Item1.precio*tupla.Item2;});
+        return precio;
+    }}
+
     public override string ToString()
     {
         string str = $"\n{cliente.ToString()}\n";
@@ -82,4 +88,10 @@ public class Venta{
     public int id_venta{get;set;}
     public DateTime fecha{get;set;}
     public List<(Producto, int)> productos{get;set;}
+
+    public float total{get{
+        float precio=0;
+        productos.ForEach(tupla =>{precio+=tupla.Item1.precio*tupla.Item2;});
+        return precio;
+    }}
 }

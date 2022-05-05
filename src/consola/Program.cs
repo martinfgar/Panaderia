@@ -22,7 +22,6 @@ Pedido ped = new Pedido{
 };
 ins.registrarPedido(ped);
 */
-
 GestorPanaderia gestor = new GestorPanaderia();
 Controlador controlador = new Controlador(gestor);
 controlador.Run();
