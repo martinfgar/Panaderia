@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\consola.csproj": {}
+    "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\consola\\consola.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\consola.csproj": {
+    "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\consola\\consola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\consola.csproj",
+        "projectUniqueName": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\consola\\consola.csproj",
         "projectName": "consola",
-        "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\consola.csproj",
-        "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\consola\\obj\\",
+        "projectPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\consola\\consola.csproj",
+        "packagesPath": "C:\\Users\\Martin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\consola\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Martin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,14 +32,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
+              "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
+                "projectPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
               },
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj"
+              "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
+                "projectPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj"
               },
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj"
+              "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj": {
+                "projectPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj"
               }
             }
           }
@@ -64,21 +68,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
+    "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
+        "projectUniqueName": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
         "projectName": "lib",
-        "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
-        "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\obj\\",
+        "projectPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\lib\\lib.csproj",
+        "packagesPath": "C:\\Users\\Martin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\lib\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Martin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -118,21 +126,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
+    "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
+        "projectUniqueName": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
         "projectName": "Repo",
-        "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
-        "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\obj\\",
+        "projectPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj",
+        "packagesPath": "C:\\Users\\Martin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Repo\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Martin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -146,8 +158,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
+              "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
+                "projectPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
               }
             }
           }
@@ -186,21 +198,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj": {
+    "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj",
+        "projectUniqueName": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj",
         "projectName": "Sistema",
-        "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj",
-        "packagesPath": "C:\\Users\\1daw3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Sistema\\obj\\",
+        "projectPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Sistema\\Sistema.csproj",
+        "packagesPath": "C:\\Users\\Martin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Sistema\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\1daw3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Martin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -214,11 +230,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
+              "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\lib\\lib.csproj": {
+                "projectPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\lib\\lib.csproj"
               },
-              "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
-                "projectPath": "C:\\Users\\1daw3\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj"
+              "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj": {
+                "projectPath": "C:\\Users\\Martin\\Desktop\\Panaderia\\src\\Repo\\Repo.csproj"
               }
             }
           }
@@ -247,7 +263,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

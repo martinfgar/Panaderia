@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace WinForms
 {
-    public partial class Form1 : Form
+    public partial class VentanaFechas : Form
     {
-        public Form1()
+        public VentanaFechas(DateTimePicker fecha1, DateTimePicker fecha2)
         {
-            InitializeComponent();
+            InitializeComponent(fecha1,fecha2);
         }
+
+       
     }
 }
