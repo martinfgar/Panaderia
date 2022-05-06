@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Sistema;
 namespace AplicacionGrafica
 {
     internal static class Program
@@ -16,7 +16,17 @@ namespace AplicacionGrafica
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Principal());
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.FilterIndex = 1;
+            choofdlog.Multiselect = true;
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string sFileName = choofdlog.FileName;
+                Application.Run(new Principal(new GestorPanaderia(sFileName)));
+            }
+            
         }
     }
 }

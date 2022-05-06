@@ -1,0 +1,16 @@
+C:\Users\1daw3\Desktop\Panaderia\libFramework\bin\Debug\libFramework.dll
+C:\Users\1daw3\Desktop\Panaderia\libFramework\bin\Debug\libFramework.pdb
+C:\Users\1daw3\Desktop\Panaderia\libFramework\obj\Debug\libFramework.csproj.AssemblyReference.cache
+C:\Users\1daw3\Desktop\Panaderia\libFramework\obj\Debug\libFramework.csproj.CoreCompileInputs.cache
+C:\Users\1daw3\Desktop\Panaderia\libFramework\obj\Debug\libFramework.dll
+C:\Users\1daw3\Desktop\Panaderia\libFramework\obj\Debug\libFramework.pdb
+C:\Users\1daw3\Desktop\Panaderia\libFramework\bin\Debug\libFramework.dll.config
+C:\Users\1daw3\Desktop\Panaderia\libFramework\bin\Debug\EntityFramework.dll
+C:\Users\1daw3\Desktop\Panaderia\libFramework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\1daw3\Desktop\Panaderia\libFramework\bin\Debug\System.Data.SQLite.dll
+C:\Users\1daw3\Desktop\Panaderia\libFramework\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\1daw3\Desktop\Panaderia\libFramework\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\1daw3\Desktop\Panaderia\libFramework\bin\Debug\EntityFramework.xml
+C:\Users\1daw3\Desktop\Panaderia\libFramework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\1daw3\Desktop\Panaderia\libFramework\bin\Debug\System.Data.SQLite.xml
+C:\Users\1daw3\Desktop\Panaderia\libFramework\obj\Debug\libFramework.csproj.CopyComplete

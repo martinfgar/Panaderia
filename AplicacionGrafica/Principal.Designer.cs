@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuPrincipal = new System.Windows.Forms.MenuStrip();
             this.menuPedidos = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPedido = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,10 +50,13 @@
             this.menuProduccion = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grupoFinanzas = new System.Windows.Forms.GroupBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.grupoPedidos = new System.Windows.Forms.GroupBox();
             this.grupoTienda = new System.Windows.Forms.GroupBox();
             this.menuPrincipal.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.grupoFinanzas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuPrincipal
@@ -128,21 +134,21 @@
             // ingresos
             // 
             this.ingresos.Name = "ingresos";
-            this.ingresos.Size = new System.Drawing.Size(180, 22);
+            this.ingresos.Size = new System.Drawing.Size(118, 22);
             this.ingresos.Text = "Ingresos";
             this.ingresos.Click += new System.EventHandler(this.ingresos_Click);
             // 
             // gastos
             // 
             this.gastos.Name = "gastos";
-            this.gastos.Size = new System.Drawing.Size(180, 22);
+            this.gastos.Size = new System.Drawing.Size(118, 22);
             this.gastos.Text = "Gastos";
             this.gastos.Click += new System.EventHandler(this.gastos_Click);
             // 
             // balance
             // 
             this.balance.Name = "balance";
-            this.balance.Size = new System.Drawing.Size(180, 22);
+            this.balance.Size = new System.Drawing.Size(118, 22);
             this.balance.Text = "Balance";
             this.balance.Click += new System.EventHandler(this.balance_Click);
             // 
@@ -201,6 +207,7 @@
             // 
             // grupoFinanzas
             // 
+            this.grupoFinanzas.Controls.Add(this.chart1);
             this.grupoFinanzas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grupoFinanzas.Location = new System.Drawing.Point(478, 3);
             this.grupoFinanzas.Name = "grupoFinanzas";
@@ -208,6 +215,24 @@
             this.grupoFinanzas.TabIndex = 0;
             this.grupoFinanzas.TabStop = false;
             this.grupoFinanzas.Text = "Finanzas";
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(3, 16);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(1097, 368);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
             // 
             // grupoPedidos
             // 
@@ -243,6 +268,8 @@
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.grupoFinanzas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +298,6 @@
         private System.Windows.Forms.GroupBox grupoFinanzas;
         private System.Windows.Forms.GroupBox grupoPedidos;
         private System.Windows.Forms.GroupBox grupoTienda;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
