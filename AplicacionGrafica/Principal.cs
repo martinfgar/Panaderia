@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using modelos;
 using Sistema;
 namespace AplicacionGrafica
@@ -15,12 +16,18 @@ namespace AplicacionGrafica
     {
         GestorPanaderia gestor;
         System.Windows.Forms.DataVisualization.Charting.Series series1;
+
+        Dictionary<Producto, int> listaCompra_pedido = new Dictionary<Producto, int>();
         public Principal(GestorPanaderia gestor)
         {
-            InitializeComponent();
-            this.gestor = gestor;
-
             
+            this.gestor = gestor;
+          
+          
+            InitializeComponent();
+            listaClientes.DataSource = gestor.listaDeClientes();
+            listaProductos.DataSource = gestor.listaProductos;
+
         }
 
         private void graficoBarrasDineroTiempo() {
@@ -104,6 +111,28 @@ namespace AplicacionGrafica
                 chart1.Series.Add(series1);
                 //get selected date
             }
+        }
+
+        private void anadirProducto_Click(object sender, EventArgs e)
+        {
+            Producto prod = (Producto)listaProductos.SelectedItem;
+            int cantidad = (int)cantidadProducto.Value;
+            //listaCompra_pedido.Add((listaProductos.SelectedItem, cantidadProducto.Value));
+            if (!listaCompra_pedido.ContainsKey(prod))
+            {
+                listaCompra_pedido.Add(prod, cantidad);
+                listaCompra.Items.Add(new ListViewItem(new string[] { prod.ToString(), cantidad.ToString() }));
+            }
+            else {
+                foreach (ListViewItem item in listaCompra.Items) {
+                    if (item.SubItems[0].Text.Equals(prod.ToString())) {
+                        item.SubItems[1].Text = cantidad.ToString();
+                    }
+                }
+                listaCompra_pedido[(Producto)listaProductos.SelectedItem] = (int)cantidadProducto.Value;
+            }
+           
+    
         }
     }
 }

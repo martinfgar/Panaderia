@@ -96,6 +96,8 @@
       <DependentUpon>VentanaFechas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\modelos.Cliente.datasource" />
+    <None Include="Properties\DataSources\Sistema.GestorPanaderia.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
