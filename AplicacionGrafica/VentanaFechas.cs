@@ -16,5 +16,10 @@ namespace AplicacionGrafica
         {
             InitializeComponent();
         }
+
+        private void fecha_inicio_ValueChanged(object sender, EventArgs e)
+        {
+            fecha_final.MinDate = fecha_inicio.Value;
+        }
     }
 }

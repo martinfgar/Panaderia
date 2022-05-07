@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuPrincipal = new System.Windows.Forms.MenuStrip();
             this.menuPedidos = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPedido = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +66,11 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnCrearPedido = new System.Windows.Forms.Button();
             this.grupoTienda = new System.Windows.Forms.GroupBox();
+            this.anadirProductoVenta = new System.Windows.Forms.Button();
+            this.cantidadProductoVenta = new System.Windows.Forms.NumericUpDown();
+            this.btnVender = new System.Windows.Forms.Button();
+            this.listaCompraLocal = new System.Windows.Forms.ListView();
+            this.listaProductosVenta = new System.Windows.Forms.ListBox();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gestorPanaderiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gestorPanaderiaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -78,6 +83,8 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cantidadProducto)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
+            this.grupoTienda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cantidadProductoVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestorPanaderiaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestorPanaderiaBindingSource1)).BeginInit();
@@ -242,18 +249,18 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(3, 16);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1097, 368);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -359,15 +366,13 @@
             // 
             this.listaCompra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listaCompra.GridLines = true;
-            this.listaCompra.HideSelection = true;
+            this.listaCompra.HideSelection = false;
             this.listaCompra.Location = new System.Drawing.Point(733, 3);
             this.listaCompra.Name = "listaCompra";
             this.listaCompra.Size = new System.Drawing.Size(361, 178);
             this.listaCompra.TabIndex = 3;
             this.listaCompra.UseCompatibleStateImageBehavior = false;
             this.listaCompra.View = System.Windows.Forms.View.Details;
-            this.listaCompra.Columns.Add("Producto");
-            this.listaCompra.Columns.Add("Cantidad");
             // 
             // tableLayoutPanel3
             // 
@@ -416,9 +421,15 @@
             this.btnCrearPedido.TabIndex = 2;
             this.btnCrearPedido.Text = "Crear Pedido";
             this.btnCrearPedido.UseVisualStyleBackColor = true;
+            this.btnCrearPedido.Click += new System.EventHandler(this.btnCrearPedido_Click);
             // 
             // grupoTienda
             // 
+            this.grupoTienda.Controls.Add(this.anadirProductoVenta);
+            this.grupoTienda.Controls.Add(this.cantidadProductoVenta);
+            this.grupoTienda.Controls.Add(this.btnVender);
+            this.grupoTienda.Controls.Add(this.listaCompraLocal);
+            this.grupoTienda.Controls.Add(this.listaProductosVenta);
             this.grupoTienda.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grupoTienda.Location = new System.Drawing.Point(3, 3);
             this.grupoTienda.Name = "grupoTienda";
@@ -427,6 +438,57 @@
             this.grupoTienda.TabIndex = 2;
             this.grupoTienda.TabStop = false;
             this.grupoTienda.Text = "Tienda";
+            // 
+            // anadirProductoVenta
+            // 
+            this.anadirProductoVenta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.anadirProductoVenta.Location = new System.Drawing.Point(3, 196);
+            this.anadirProductoVenta.Name = "anadirProductoVenta";
+            this.anadirProductoVenta.Size = new System.Drawing.Size(463, 51);
+            this.anadirProductoVenta.TabIndex = 4;
+            this.anadirProductoVenta.Text = "Añadir Producto";
+            this.anadirProductoVenta.UseVisualStyleBackColor = true;
+            this.anadirProductoVenta.Click += new System.EventHandler(this.anadirProductoVenta_Click);
+            // 
+            // cantidadProductoVenta
+            // 
+            this.cantidadProductoVenta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cantidadProductoVenta.Location = new System.Drawing.Point(3, 176);
+            this.cantidadProductoVenta.Name = "cantidadProductoVenta";
+            this.cantidadProductoVenta.Size = new System.Drawing.Size(463, 20);
+            this.cantidadProductoVenta.TabIndex = 3;
+            // 
+            // btnVender
+            // 
+            this.btnVender.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnVender.Location = new System.Drawing.Point(3, 462);
+            this.btnVender.Name = "btnVender";
+            this.btnVender.Size = new System.Drawing.Size(463, 58);
+            this.btnVender.TabIndex = 2;
+            this.btnVender.Text = "Confirmar Venta";
+            this.btnVender.UseVisualStyleBackColor = true;
+            this.btnVender.Click += new System.EventHandler(this.btnVender_Click);
+            // 
+            // listaCompraLocal
+            // 
+            this.listaCompraLocal.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.listaCompraLocal.GridLines = true;
+            this.listaCompraLocal.HideSelection = false;
+            this.listaCompraLocal.Location = new System.Drawing.Point(3, 520);
+            this.listaCompraLocal.Name = "listaCompraLocal";
+            this.listaCompraLocal.Size = new System.Drawing.Size(463, 257);
+            this.listaCompraLocal.TabIndex = 1;
+            this.listaCompraLocal.UseCompatibleStateImageBehavior = false;
+            this.listaCompraLocal.View = System.Windows.Forms.View.Details;
+            // 
+            // listaProductosVenta
+            // 
+            this.listaProductosVenta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listaProductosVenta.FormattingEnabled = true;
+            this.listaProductosVenta.Location = new System.Drawing.Point(3, 16);
+            this.listaProductosVenta.Name = "listaProductosVenta";
+            this.listaProductosVenta.Size = new System.Drawing.Size(463, 160);
+            this.listaProductosVenta.TabIndex = 0;
             // 
             // Principal
             // 
@@ -450,6 +512,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cantidadProducto)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.grupoTienda.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cantidadProductoVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestorPanaderiaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestorPanaderiaBindingSource1)).EndInit();
@@ -497,5 +561,10 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnCrearPedido;
+        private System.Windows.Forms.Button btnVender;
+        private System.Windows.Forms.ListView listaCompraLocal;
+        private System.Windows.Forms.ListBox listaProductosVenta;
+        private System.Windows.Forms.Button anadirProductoVenta;
+        private System.Windows.Forms.NumericUpDown cantidadProductoVenta;
     }
 }

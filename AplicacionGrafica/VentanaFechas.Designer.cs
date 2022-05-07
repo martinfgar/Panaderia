@@ -80,6 +80,7 @@
             this.fecha_inicio.Name = "fecha_inicio";
             this.fecha_inicio.Size = new System.Drawing.Size(200, 20);
             this.fecha_inicio.TabIndex = 1;
+            this.fecha_inicio.ValueChanged += new System.EventHandler(this.fecha_inicio_ValueChanged);
             // 
             // lblFin
             // 
@@ -101,6 +102,7 @@
             // 
             // btnAceptar
             // 
+            this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAceptar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAceptar.Location = new System.Drawing.Point(300, 336);
             this.btnAceptar.Name = "btnAceptar";
@@ -108,7 +110,6 @@
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
             // 
             // VentanaFechas
             // 
