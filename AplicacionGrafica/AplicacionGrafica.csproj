@@ -74,6 +74,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VentanaElegirDeLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaElegirDeLista.Designer.cs">
+      <DependentUpon>VentanaElegirDeLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaFechaConcreta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaFechaConcreta.Designer.cs">
+      <DependentUpon>VentanaFechaConcreta.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentanaFechas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +104,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VentanaElegirDeLista.resx">
+      <DependentUpon>VentanaElegirDeLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaFechaConcreta.resx">
+      <DependentUpon>VentanaFechaConcreta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VentanaFechas.resx">
       <DependentUpon>VentanaFechas.cs</DependentUpon>
     </EmbeddedResource>

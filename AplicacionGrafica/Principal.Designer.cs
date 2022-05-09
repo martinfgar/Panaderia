@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuPrincipal = new System.Windows.Forms.MenuStrip();
             this.menuPedidos = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPedido = new System.Windows.Forms.ToolStripMenuItem();
@@ -121,36 +121,42 @@
             this.nuevoPedido.Name = "nuevoPedido";
             this.nuevoPedido.Size = new System.Drawing.Size(216, 22);
             this.nuevoPedido.Text = "Nuevo";
+            this.nuevoPedido.Click += new System.EventHandler(this.nuevoPedido_Click);
             // 
             // cancelarPedido
             // 
             this.cancelarPedido.Name = "cancelarPedido";
             this.cancelarPedido.Size = new System.Drawing.Size(216, 22);
             this.cancelarPedido.Text = "Cancelar";
+            this.cancelarPedido.Click += new System.EventHandler(this.cancelarPedido_Click);
             // 
             // entregarPedido
             // 
             this.entregarPedido.Name = "entregarPedido";
             this.entregarPedido.Size = new System.Drawing.Size(216, 22);
             this.entregarPedido.Text = "Entregar";
+            this.entregarPedido.Click += new System.EventHandler(this.entregarPedido_Click);
             // 
             // nuevoPedHab
             // 
             this.nuevoPedHab.Name = "nuevoPedHab";
             this.nuevoPedHab.Size = new System.Drawing.Size(216, 22);
             this.nuevoPedHab.Text = "Nuevo Pedido Habitual";
+            this.nuevoPedHab.Click += new System.EventHandler(this.nuevoPedHab_Click);
             // 
             // elimPedidoHab
             // 
             this.elimPedidoHab.Name = "elimPedidoHab";
             this.elimPedidoHab.Size = new System.Drawing.Size(216, 22);
             this.elimPedidoHab.Text = "Eliminar Pedido Habitual";
+            this.elimPedidoHab.Click += new System.EventHandler(this.elimPedidoHab_Click);
             // 
             // excPedidoHab
             // 
             this.excPedidoHab.Name = "excPedidoHab";
             this.excPedidoHab.Size = new System.Drawing.Size(216, 22);
             this.excPedidoHab.Text = "Excepción Pedido Habitual";
+            this.excPedidoHab.Click += new System.EventHandler(this.excPedidoHab_Click);
             // 
             // menuFinanzas
             // 
@@ -249,18 +255,18 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(3, 16);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(1097, 368);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
