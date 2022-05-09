@@ -96,3 +96,5 @@ C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\bin\Debug\System.Runtime.Com
 C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.csproj.CopyComplete
 C:\Users\1daw3\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.VentanaElegirDeLista.resources
 C:\Users\1daw3\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.VentanaFechaConcreta.resources
+C:\Users\1daw3\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.MostrarDiccionarioTabla.resources
+C:\Users\1daw3\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.VentanaProduccion.resources

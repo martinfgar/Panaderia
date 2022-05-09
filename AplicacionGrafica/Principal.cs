@@ -64,14 +64,10 @@ namespace AplicacionGrafica
                 
                 while ((fecha_1-fecha_2).TotalDays<1) {
                     double benef = Math.Round((gestor.dineroPedidosRangoFechas(fecha_1, fecha_1) + gestor.dineroVentasRangoFechas(fecha_1, fecha_1)),2);
-                    series1.Points.AddXY(fecha_1,benef);
-                    
-                    fecha_1 = fecha_1.AddDays(1);
-                    
-                }
-                
-                chart1.Series.Add(series1);
-                
+                    series1.Points.AddXY(fecha_1,benef);                   
+                    fecha_1 = fecha_1.AddDays(1);                    
+                }               
+                chart1.Series.Add(series1);               
             }
         }
 
@@ -368,6 +364,19 @@ namespace AplicacionGrafica
                     
                 }
             }
+        }
+
+        private void verAProducir_Click(object sender, EventArgs e)
+        {
+            
+            MostrarDiccionarioTabla<Producto, int> ventana = new MostrarDiccionarioTabla<Producto, int>(new String[] {"Producto","Cantidad"},gestor.aProducirEnFecha(DateTime.Today));
+            ventana.ShowDialog();
+        }
+
+        private void especifiarProduccion_Click(object sender, EventArgs e)
+        {
+            VentanaProduccion ven = new VentanaProduccion(gestor);
+            ven.ShowDialog();
         }
     }
 }
