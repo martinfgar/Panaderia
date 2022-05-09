@@ -124,22 +124,15 @@ namespace AplicacionGrafica
         {
             Producto prod = (Producto)listaProductos.SelectedItem;
             int cantidad = (int)cantidadProducto.Value;
-            
-            if (!listaCompra_pedido.ContainsKey(prod))
-            {
-                listaCompra_pedido.Add(prod, cantidad);
-                listaCompra.Items.Add(new ListViewItem(new string[] { prod.ToString(), cantidad.ToString() }));
-            }
-            else {
-                foreach (ListViewItem item in listaCompra.Items) {
-                    if (item.SubItems[0].Text.Equals(prod.ToString())) {
-                        item.SubItems[1].Text = cantidad.ToString();
-                    }
+            listaCompra_pedido[prod] = cantidad;
+            foreach (ListViewItem item in listaCompra.Items) {
+                if (item.SubItems[0].Text.Equals(prod.ToString())) {
+                    item.SubItems[1].Text = cantidad.ToString();
+                    return;
                 }
-                listaCompra_pedido[(Producto)listaProductos.SelectedItem] = (int)cantidadProducto.Value;
             }
-           
-    
+            listaCompra.Items.Add(new ListViewItem(new string[] { prod.ToString(), cantidad.ToString() }));
+
         }
 
         private void btnCrearPedido_Click(object sender, EventArgs e)
@@ -147,40 +140,38 @@ namespace AplicacionGrafica
                 if (listaCompra_pedido.Count == 0)
                 {
                     MessageBox.Show("Añada algún producto para realizar un pedido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-                else
+                try
                 {
-                    try
+                    List<(Producto, int)> listaProd = new List<(Producto, int)>();
+                    foreach (KeyValuePair<Producto, int> kvp in listaCompra_pedido)
                     {
-                        List<(Producto, int)> listaProd = new List<(Producto, int)>();
-                        foreach (KeyValuePair<Producto, int> kvp in listaCompra_pedido)
-                        {
-                            listaProd.Add((kvp.Key, kvp.Value));
-                        }
-                        gestor.registrarPedido(new Pedido
-                        {
-                            fecha = dateTimePicker1.Value,
-                            dni = ((Cliente)listaClientes.SelectedItem).dni,
-                            entregado = false,
-                            pagado = false,
-                            productos = listaProd
-                        });
-                        MessageBox.Show("Pedido realizado con exito.\nEn caso de ser un cliente con un pedido habitual ese día no se entregará.", "Pedido completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        listaProd.Add((kvp.Key, kvp.Value));
                     }
-                    catch (SQLiteException ex)
+                    gestor.registrarPedido(new Pedido
                     {
-                        MessageBox.Show("Este cliente ya tiene un pedido para esa fecha.\nCancelelo o haga una excepción en caso de ser un pedido habitual.", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        fecha = dateTimePicker1.Value,
+                        dni = ((Cliente)listaClientes.SelectedItem).dni,
+                        entregado = false,
+                        pagado = false,
+                        productos = listaProd
+                    });
+                    MessageBox.Show("Pedido realizado con exito.\nEn caso de ser un cliente con un pedido habitual ese día no se entregará.", "Pedido completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (SQLiteException ex)
+                { 
+                    MessageBox.Show("Este cliente ya tiene un pedido para esa fecha.\nCancelelo o haga una excepción en caso de ser un pedido habitual.", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error:\n{ex.Message}", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    listaCompra.Items.Clear();
-                    listaCompra_pedido.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error:\n{ex.Message}", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                listaCompra.Items.Clear();
+                listaCompra_pedido.Clear();
 
-                }                      
+                                   
         }
 
         private void anadirProductoVenta_Click(object sender, EventArgs e)
@@ -212,31 +203,24 @@ namespace AplicacionGrafica
             if (listaCompra_local.Count == 0)
             {
                 MessageBox.Show("Añada algún producto para realizar una venta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+            try
             {
-                try
+                List<(Producto, int)> listaProd = new List<(Producto, int)>();
+                foreach (KeyValuePair<Producto, int> kvp in listaCompra_local) { listaProd.Add((kvp.Key, kvp.Value)); }
+                gestor.venderProductos(new Venta
                 {
-                    List<(Producto, int)> listaProd = new List<(Producto, int)>();
-                    foreach (KeyValuePair<Producto, int> kvp in listaCompra_local)
-                    {
-                        listaProd.Add((kvp.Key, kvp.Value));
-                    }
-                    gestor.venderProductos(new Venta
-                    {
-                        productos = listaProd,
-                    }) ;
-                    MessageBox.Show("Venta realizada con exito.", "Venta completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error:\n{ex.Message}", "Error al registrar la venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                listaCompraLocal.Items.Clear();
-                listaCompra_local.Clear();
-
+                    productos = listaProd,
+                });
+                MessageBox.Show("Venta realizada con exito.", "Venta completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error:\n{ex.Message}", "Error al registrar la venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            listaCompraLocal.Items.Clear();
+            listaCompra_local.Clear();
         }
 
         private void nuevoPedido_Click(object sender, EventArgs e)
@@ -268,37 +252,31 @@ namespace AplicacionGrafica
             if (listaCompra_pedido.Count == 0)
             {
                 MessageBox.Show("Añada algún producto para realizar un pedido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+            try
             {
-                try
+                List<(Producto, int)> listaProd = new List<(Producto, int)>();
+                foreach (KeyValuePair<Producto, int> kvp in listaCompra_pedido) { listaProd.Add((kvp.Key, kvp.Value)); }
+                gestor.registrarPedidoHabitual(new PedidoHabitual
                 {
-                    List<(Producto, int)> listaProd = new List<(Producto, int)>();
-                    foreach (KeyValuePair<Producto, int> kvp in listaCompra_pedido)
-                    {
-                        listaProd.Add((kvp.Key, kvp.Value));
-                    }
-                    gestor.registrarPedidoHabitual(new PedidoHabitual {
-                        dni = ((Cliente)listaClientes.SelectedItem).dni,
-                        productos = listaProd
+                    dni = ((Cliente)listaClientes.SelectedItem).dni,
+                    productos = listaProd
 
-                    });
-                    MessageBox.Show("Pedido habitual guardado con exito.", "Rutina registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-                catch (SQLiteException ex)
-                {
-                    MessageBox.Show("Este cliente ya tiene un pedido habitual.\nEliminelo antes de registrar uno nuevo.", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error:\n{ex.Message}", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                listaCompra.Items.Clear();
-                listaCompra_pedido.Clear();
+                });
+                MessageBox.Show("Pedido habitual guardado con exito.", "Rutina registrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show("Este cliente ya tiene un pedido habitual.\nEliminelo antes de registrar uno nuevo.", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error:\n{ex.Message}", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            listaCompra.Items.Clear();
+            listaCompra_pedido.Clear();
         }
 
         private void elimPedidoHab_Click(object sender, EventArgs e)
@@ -367,8 +345,7 @@ namespace AplicacionGrafica
         }
 
         private void verAProducir_Click(object sender, EventArgs e)
-        {
-            
+        {           
             MostrarDiccionarioTabla<Producto, int> ventana = new MostrarDiccionarioTabla<Producto, int>(new String[] {"Producto","Cantidad"},gestor.aProducirEnFecha(DateTime.Today));
             ventana.ShowDialog();
         }
