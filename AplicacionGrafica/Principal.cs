@@ -137,66 +137,57 @@ namespace AplicacionGrafica
 
         private void btnCrearPedido_Click(object sender, EventArgs e)
         {
-                if (listaCompra_pedido.Count == 0)
+            if (listaCompra_pedido.Count == 0)
+            {
+                MessageBox.Show("Añada algún producto para realizar un pedido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                List<(Producto, int)> listaProd = new List<(Producto, int)>();
+                foreach (KeyValuePair<Producto, int> kvp in listaCompra_pedido)
                 {
-                    MessageBox.Show("Añada algún producto para realizar un pedido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    listaProd.Add((kvp.Key, kvp.Value));
                 }
-                try
+                gestor.registrarPedido(new Pedido
                 {
-                    List<(Producto, int)> listaProd = new List<(Producto, int)>();
-                    foreach (KeyValuePair<Producto, int> kvp in listaCompra_pedido)
-                    {
-                        listaProd.Add((kvp.Key, kvp.Value));
-                    }
-                    gestor.registrarPedido(new Pedido
-                    {
-                        fecha = dateTimePicker1.Value,
-                        dni = ((Cliente)listaClientes.SelectedItem).dni,
-                        entregado = false,
-                        pagado = false,
-                        productos = listaProd
-                    });
-                    MessageBox.Show("Pedido realizado con exito.\nEn caso de ser un cliente con un pedido habitual ese día no se entregará.", "Pedido completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (SQLiteException ex)
-                { 
-                    MessageBox.Show("Este cliente ya tiene un pedido para esa fecha.\nCancelelo o haga una excepción en caso de ser un pedido habitual.", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    fecha = dateTimePicker1.Value,
+                    dni = ((Cliente)listaClientes.SelectedItem).dni,
+                    entregado = false,
+                    pagado = false,
+                    productos = listaProd
+                });
+                MessageBox.Show("Pedido realizado con exito.\nEn caso de ser un cliente con un pedido habitual ese día no se entregará.", "Pedido completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show("Este cliente ya tiene un pedido para esa fecha.\nCancelelo o haga una excepción en caso de ser un pedido habitual.", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error:\n{ex.Message}", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                listaCompra.Items.Clear();
-                listaCompra_pedido.Clear();
-
-                                   
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error:\n{ex.Message}", "Error al registrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            listaCompra.Items.Clear();
+            listaCompra_pedido.Clear();
         }
 
         private void anadirProductoVenta_Click(object sender, EventArgs e)
         {
             Producto prod = (Producto)listaProductosVenta.SelectedItem;
             int cantidad = (int)cantidadProductoVenta.Value;
-
-            if (!listaCompra_local.ContainsKey(prod))
+            listaCompra_local[prod] = cantidad;
+            foreach (ListViewItem item in listaCompra.Items)
             {
-                listaCompra_local.Add(prod, cantidad);
-                listaCompraLocal.Items.Add(new ListViewItem(new string[] { prod.ToString(), cantidad.ToString() }));
-                
-            }
-            else
-            {
-                foreach (ListViewItem item in listaCompra.Items)
+                if (item.SubItems[0].Text.Equals(prod.ToString()))
                 {
-                    if (item.SubItems[0].Text.Equals(prod.ToString()))
-                    {
-                        item.SubItems[1].Text = cantidad.ToString();
-                    }
+                    item.SubItems[1].Text = cantidad.ToString();
+                    return;
                 }
-                listaCompra_local[(Producto)listaProductosVenta.SelectedItem] = (int)cantidadProductoVenta.Value;
             }
+            listaCompraLocal.Items.Add(new ListViewItem(new string[] { prod.ToString(), cantidad.ToString() }));
         }
+      
 
         private void btnVender_Click(object sender, EventArgs e)
         {
@@ -354,6 +345,56 @@ namespace AplicacionGrafica
         {
             VentanaProduccion ven = new VentanaProduccion(gestor);
             ven.ShowDialog();
+        }
+
+        private void deudasClientes_Click(object sender, EventArgs e)
+        {
+            Dictionary<Cliente, float> dict = new Dictionary<Cliente, float>();
+            List<Cliente> clientes = gestor.listaDeClientes();
+            clientes.ForEach(cliente => { dict[cliente] = gestor.dineroQueDebeCliente(cliente); });
+            MostrarDiccionarioTabla<Cliente, float> ventana = new MostrarDiccionarioTabla<Cliente, float>(new string[] {"Cliente","Deuda €"},dict);
+            ventana.ShowDialog();
+        }
+
+        private void pagarDeuda_Click(object sender, EventArgs e)
+        {
+            List<Cliente> clientes = gestor.listaDeClientes().FindAll(x => gestor.dineroQueDebeCliente(x)>0);
+            VentanaElegirDeLista<Cliente> vent = new VentanaElegirDeLista<Cliente>(clientes);
+            var res = vent.ShowDialog();
+            if (res == DialogResult.OK) {
+                gestor.saldarDeudas((Cliente)vent.listBox1.SelectedItem);
+                MessageBox.Show("Deudas saldadas","Pago completado",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+        }
+
+        private void registrarCliente_Click(object sender, EventArgs e)
+        {
+            RegistroCliente ventana = new RegistroCliente();
+            var res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                if (ventana.txtDNI.Text.Length == 0 || ventana.txtNombre.Text.Length == 0 || ventana.txtNombre.Text.Length == 0) {
+                    MessageBox.Show("Introduzca todos los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                try
+                {
+                    gestor.registrarCliente(new Cliente { 
+                        dni =ventana.txtDNI.Text,
+                        nombre=ventana.txtNombre.Text,
+                        direccion= ventana.txtNombre.Text
+                    });
+                    MessageBox.Show("Cliente registrado correctamente.", "Cliente Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (SQLiteException ex)
+                {
+                    MessageBox.Show("Este usuario ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex) {
+                    MessageBox.Show($"Error\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            
+            }
         }
     }
 }

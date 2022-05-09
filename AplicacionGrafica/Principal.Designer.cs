@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuPrincipal = new System.Windows.Forms.MenuStrip();
             this.menuPedidos = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPedido = new System.Windows.Forms.ToolStripMenuItem();
@@ -204,20 +204,23 @@
             // registrarCliente
             // 
             this.registrarCliente.Name = "registrarCliente";
-            this.registrarCliente.Size = new System.Drawing.Size(153, 22);
+            this.registrarCliente.Size = new System.Drawing.Size(180, 22);
             this.registrarCliente.Text = "Nuevo";
+            this.registrarCliente.Click += new System.EventHandler(this.registrarCliente_Click);
             // 
             // deudasClientes
             // 
             this.deudasClientes.Name = "deudasClientes";
-            this.deudasClientes.Size = new System.Drawing.Size(153, 22);
+            this.deudasClientes.Size = new System.Drawing.Size(180, 22);
             this.deudasClientes.Text = "Ver Deudas";
+            this.deudasClientes.Click += new System.EventHandler(this.deudasClientes_Click);
             // 
             // pagarDeuda
             // 
             this.pagarDeuda.Name = "pagarDeuda";
-            this.pagarDeuda.Size = new System.Drawing.Size(153, 22);
+            this.pagarDeuda.Size = new System.Drawing.Size(180, 22);
             this.pagarDeuda.Text = "Pago de deuda";
+            this.pagarDeuda.Click += new System.EventHandler(this.pagarDeuda_Click);
             // 
             // menuProduccion
             // 
@@ -274,18 +277,18 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(3, 16);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(1097, 368);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -372,9 +375,19 @@
             // 
             this.cantidadProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cantidadProducto.Location = new System.Drawing.Point(29, 123);
+            this.cantidadProducto.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.cantidadProducto.Name = "cantidadProducto";
             this.cantidadProducto.Size = new System.Drawing.Size(120, 20);
             this.cantidadProducto.TabIndex = 1;
+            this.cantidadProducto.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // anadirProducto
             // 
@@ -393,6 +406,7 @@
             this.listaCompra.GridLines = true;
             this.listaCompra.HideSelection = false;
             this.listaCompra.Location = new System.Drawing.Point(733, 3);
+            this.listaCompra.MultiSelect = false;
             this.listaCompra.Name = "listaCompra";
             this.listaCompra.Size = new System.Drawing.Size(361, 178);
             this.listaCompra.TabIndex = 3;
@@ -479,9 +493,19 @@
             // 
             this.cantidadProductoVenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.cantidadProductoVenta.Location = new System.Drawing.Point(3, 176);
+            this.cantidadProductoVenta.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.cantidadProductoVenta.Name = "cantidadProductoVenta";
             this.cantidadProductoVenta.Size = new System.Drawing.Size(463, 20);
             this.cantidadProductoVenta.TabIndex = 3;
+            this.cantidadProductoVenta.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnVender
             // 

@@ -138,9 +138,19 @@
             // 
             this.cantidadProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cantidadProducto.Location = new System.Drawing.Point(230, 114);
+            this.cantidadProducto.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.cantidadProducto.Name = "cantidadProducto";
             this.cantidadProducto.Size = new System.Drawing.Size(120, 20);
             this.cantidadProducto.TabIndex = 1;
+            this.cantidadProducto.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // anadirProducto
             // 
