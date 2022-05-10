@@ -335,18 +335,6 @@ namespace Repo {
             }
 
         }
-        //Registrar el pago de un cliente
-        public void registrarPago(Cliente cliente, float cantidad)
-        {
-            sqlite_cmd = conexion.CreateCommand();
-            conexion.Open();
-            sqlite_cmd.CommandText = $"insert into pago values(@dni,@fecha,@cantidad)";
-            sqlite_cmd.Parameters.AddWithValue("@dni", cliente.dni);
-            sqlite_cmd.Parameters.AddWithValue("@fecha", System.DateTime.Now.ToString("d", CultureInfo.GetCultureInfo("es-ES")));
-            sqlite_cmd.Parameters.AddWithValue("@cantidad", cantidad);
-            sqlite_cmd.ExecuteReader();
-            conexion.Close();
-        }
 
         //Registrar venta fisica en local
         public void registrarVenta(Venta venta)

@@ -21,9 +21,7 @@ namespace AplicacionGrafica
         public Principal(GestorPanaderia gestor)
         {
             
-            this.gestor = gestor;
-          
-          
+            this.gestor = gestor;         
             InitializeComponent();
             listaClientes.DataSource = gestor.listaDeClientes();
             listaProductos.DataSource = gestor.listaProductos;
@@ -273,6 +271,7 @@ namespace AplicacionGrafica
         private void elimPedidoHab_Click(object sender, EventArgs e)
         {
             VentanaElegirDeLista<PedidoHabitual> ventana = new VentanaElegirDeLista<PedidoHabitual>(gestor.listaPedidosHabituales());
+            ventana.Text = "Elija el pedido";
             var result = ventana.ShowDialog();
             if (result == DialogResult.OK) {
                 gestor.eliminarPedidoHabitual((PedidoHabitual)ventana.listBox1.SelectedItem);
@@ -298,6 +297,7 @@ namespace AplicacionGrafica
         private void entregarPedido_Click(object sender, EventArgs e)
         {
             VentanaElegirDeLista<Pedido> ventana = new VentanaElegirDeLista<Pedido>(gestor.pedidosPorEntregarHoy());
+            ventana.Text = "Pedidos por entregar";
             var resultado = ventana.ShowDialog();
             if (resultado == DialogResult.OK) {
                 gestor.entregarPedido((Pedido)ventana.listBox1.SelectedItem);
@@ -308,6 +308,7 @@ namespace AplicacionGrafica
         private void excPedidoHab_Click(object sender, EventArgs e)
         {
             VentanaElegirDeLista<PedidoHabitual> ventana = new VentanaElegirDeLista<PedidoHabitual>(gestor.listaPedidosHabituales());
+            ventana.Text = "Elija el pedido";
             var result = ventana.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -338,6 +339,7 @@ namespace AplicacionGrafica
         private void verAProducir_Click(object sender, EventArgs e)
         {           
             MostrarDiccionarioTabla<Producto, int> ventana = new MostrarDiccionarioTabla<Producto, int>(new String[] {"Producto","Cantidad"},gestor.aProducirEnFecha(DateTime.Today));
+            ventana.Text = "Productos a producir";
             ventana.ShowDialog();
         }
 
@@ -353,6 +355,7 @@ namespace AplicacionGrafica
             List<Cliente> clientes = gestor.listaDeClientes();
             clientes.ForEach(cliente => { dict[cliente] = gestor.dineroQueDebeCliente(cliente); });
             MostrarDiccionarioTabla<Cliente, float> ventana = new MostrarDiccionarioTabla<Cliente, float>(new string[] {"Cliente","Deuda €"},dict);
+            ventana.Text = "Deudas de clientes";
             ventana.ShowDialog();
         }
 
@@ -360,6 +363,7 @@ namespace AplicacionGrafica
         {
             List<Cliente> clientes = gestor.listaDeClientes().FindAll(x => gestor.dineroQueDebeCliente(x)>0);
             VentanaElegirDeLista<Cliente> vent = new VentanaElegirDeLista<Cliente>(clientes);
+            vent.Text = "Saldar Deuda";
             var res = vent.ShowDialog();
             if (res == DialogResult.OK) {
                 gestor.saldarDeudas((Cliente)vent.listBox1.SelectedItem);
@@ -385,6 +389,7 @@ namespace AplicacionGrafica
                         direccion= ventana.txtNombre.Text
                     });
                     MessageBox.Show("Cliente registrado correctamente.", "Cliente Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    listaClientes.DataSource = gestor.listaDeClientes();
                 }
                 catch (SQLiteException ex)
                 {

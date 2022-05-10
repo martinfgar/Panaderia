@@ -16,17 +16,8 @@ namespace AplicacionGrafica
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            OpenFileDialog choofdlog = new OpenFileDialog();
-            choofdlog.Filter = "All Files (*.*)|*.*";
-            choofdlog.FilterIndex = 1;
-            choofdlog.Multiselect = true;
+            Application.Run(new Principal(new GestorPanaderia()));
 
-            if (choofdlog.ShowDialog() == DialogResult.OK)
-            {
-                string sFileName = choofdlog.FileName;
-                Application.Run(new Principal(new GestorPanaderia(sFileName)));
-            }
-            
         }
     }
 }

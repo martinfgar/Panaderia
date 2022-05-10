@@ -19,18 +19,6 @@ namespace Sistema {
 
         private float precio_luz_kw_h;
         public List<Producto> listaProductos { get; set; }
-
-        public GestorPanaderia(string urlDB) {
-            con = new ConnectDB(urlDB);
-            sel = new Selects(con.crearConexion());
-            ins = new Inserts(con.crearConexion());
-            upd = new Updates(con.crearConexion());
-            del = new Deletes(con.crearConexion());
-            listaProductos = sel.obtenerProductos();
-            anadirHabitualesDeManana();
-            precio_luz_kw_h = PrecioLuz.obtenerPrecioLuz() / 1000;
-        }
-
         public GestorPanaderia()
         {
             con = new ConnectDB();
@@ -288,7 +276,6 @@ namespace Sistema {
         //Cuando un cliente paga, los pedidos entregados se establecen  como pagados y se registra el pago
         public void saldarDeudas(Cliente cliente)
         {
-            ins.registrarPago(cliente, dineroQueDebeCliente(cliente));
             upd.pagarPedidosEntregadosACliente(cliente);
         }
 

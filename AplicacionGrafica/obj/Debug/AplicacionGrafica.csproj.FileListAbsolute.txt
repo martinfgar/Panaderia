@@ -103,3 +103,4 @@ C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.
 C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.VentanaFechaConcreta.resources
 C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.VentanaProduccion.resources
 C:\Users\Martin\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.RegistroCliente.resources
+C:\Users\1daw3\Desktop\Panaderia\AplicacionGrafica\obj\Debug\AplicacionGrafica.RegistroCliente.resources
