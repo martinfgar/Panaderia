@@ -85,20 +85,6 @@ namespace modelos {
             return str;
         }
     }
-    public class Pago
-    {
-        public string dni { get; set; }
-        public System.DateTime fecha { get; set; }
-
-        public float cantidad { get; set; }
-        public Cliente cliente { get; set; }
-    }
-    public class Producido
-    {
-        public System.DateTime fecha { get; set; }
-        public float horas_horno { get; set; }
-        public List<(Producto, int)> productos { get; set; }
-    }
     public class Venta
     {
         public int id_venta { get; set; }
