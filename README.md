@@ -27,13 +27,27 @@ El programa no automatizará lo relacionado con los gastos del reparto ni emplea
 
 ## Diagramas  
 
-### Casos de uso  
+En nuestro caso para obtener la persistencia de datos hemos optado por utilizar una base de datos **SQLite**.
+
+### Diagrama entidad relación de la base de datos  
+
+![](Imagenes/ER.png)
+
+### Casos de uso de negocio  
+
+![](Imagenes/CasosDeUsoNegocio.png)  
+
+### Casos de uso de sistema
 
 ![](Imagenes/Casos%20de%20uso%20panaderia.png)
 
-### Diagrama de actividad  
+### Diagrama de actividad al realizar un pedido  
 
-### Diagrama de estado   
+![](Imagenes/DiagramaActividad.png)
+
+### Diagrama de estado de un pedido  
+
+![](Imagenes/DiagramaEstadoPedido.png)
 
 ### Diagrama de secuencia   
 
@@ -45,4 +59,30 @@ El programa no automatizará lo relacionado con los gastos del reparto ni emplea
 
 - Arquitectura : En este caso todos los namespace hacen uso de los modelos de negocio anteriormente mostrados.  
 
+![](Imagenes/DiagramaClasesArquitectura.png)
 
+## Capturas de Ejecución  
+Pantalla principal al iniciar el programa
+![](Imagenes/CapturasEjecucion/1.PNG)  
+Opciones en la pestaña de producción
+![](Imagenes/CapturasEjecucion/2.PNG)
+Ventana al elegir "Ver Productos a Producir"  
+![](Imagenes/CapturasEjecucion/3.PNG)  
+Ventana al elegir "Especificar Producción de Hoy"
+![](Imagenes/CapturasEjecucion/4.PNG)  
+Opciones en la pestaña pedidos  
+![](Imagenes/CapturasEjecucion/5.PNG)  
+Ventana para elegir una opción de una lista. En este caso que pedido entregar. 
+![](Imagenes/CapturasEjecucion/6.PNG)  
+Para cancelar un pedido primero pregunta por la fecha.  
+![](Imagenes/CapturasEjecucion/7.PNG)  
+Opciones de la pestaña finanzas. Elegimos la opción balance. 
+![](Imagenes/CapturasEjecucion/9.PNG)  
+Pregunta el rango de fechas de los que ver los datos. Elegimos el día 11 de Mayo.
+![](Imagenes/CapturasEjecucion/10.PNG)  
+Se nos muestra en la ventana principal un gráfico de tipo "donut".
+![](Imagenes/CapturasEjecucion/11.PNG)  
+Realizamos una venta en la tienda.  
+![](Imagenes/CapturasEjecucion/12.PNG)  
+Pedimos otra vez el gráfico del balance de hoy y vemos como aparecen las ventas.
+![](Imagenes/CapturasEjecucion/13.PNG)  
