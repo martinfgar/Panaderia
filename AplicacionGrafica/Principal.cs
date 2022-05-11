@@ -175,7 +175,7 @@ namespace AplicacionGrafica
             Producto prod = (Producto)listaProductosVenta.SelectedItem;
             int cantidad = (int)cantidadProductoVenta.Value;
             listaCompra_local[prod] = cantidad;
-            foreach (ListViewItem item in listaCompra.Items)
+            foreach (ListViewItem item in listaCompraLocal.Items)
             {
                 if (item.SubItems[0].Text.Equals(prod.ToString()))
                 {
@@ -185,7 +185,7 @@ namespace AplicacionGrafica
             }
             listaCompraLocal.Items.Add(new ListViewItem(new string[] { prod.ToString(), cantidad.ToString() }));
         }
-      
+
 
         private void btnVender_Click(object sender, EventArgs e)
         {
