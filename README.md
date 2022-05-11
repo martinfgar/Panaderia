@@ -1,5 +1,7 @@
 # PANADERÍA  
 
+[Enlace al repositorio Github del proyecto.](https://github.com/martinfgar/Panaderia)
+
 ## Contexto  
 
 Manolo tiene una panadería, en la que produce **4 tipos de panes**. A la madrugada produce el pan en su horno, y cada día produce lo que entregará en los **pedidos a domicilio** y lo que tendrá en la tienda.  
@@ -88,3 +90,20 @@ Realizamos una venta en la tienda.
 ![](Imagenes/CapturasEjecucion/12.PNG)  
 Pedimos otra vez el gráfico del balance de hoy y vemos como aparecen las ventas.
 ![](Imagenes/CapturasEjecucion/13.PNG)  
+
+## Mejoras y decisiones  
+
+A la hora de desarrollar el proyecto, se han tomado algunas decisiones relacionadas con el cálculo de gastos:  
+- El gasto de luz viene dado por los siguientes factores: 
+  - Consumo del horno: Especificada en el código. Mejora: **Obtener el consumo desde un fichero de configuración .json**.
+  - Coste luz: Lo obtenemos utilizando una [API](https://api.preciodelaluz.org/) que nos da datos del precio de luz del mercado español.  
+- El gasto en harina viene dado por los siguientes factores: 
+  - Coste harina: Especificado en el código. Mejora: **Obtener el consumo desde un fichero de configuración .json**.
+  - Uso de harina por pan: Viene especificado en la base de datos. Mejora: **Añadir funcionalidades al programa para modificar parámetros de los productos**.  
+
+Añadiendo esas mejoras se podría conseguir un programa más adaptable y ajustado al usuario.  
+
+## Problemas en el desarrollo  
+
+Al desarrollar el proyecto, primero se realizó una [version de consola](https://github.com/martinfgar/Panaderia/tree/Consola) basada en .NET 6.0. La idea era mantenerse en .NET 6.0 y realizar una interfaz alternativa con WinForms incluyendo gráficas.  
+Sin embargo, en WinForms para .NET 6.0 las gráficas no están disponibles, por lo que se tuvo que cambiar todo el proyecto a .NET Framework. A causa de esto, parte del código, que estaba escrito en C# 10.0, se tuvo que modificar para hacerlo compatible con C# 7.3.
