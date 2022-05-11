@@ -49,15 +49,17 @@ En nuestro caso para obtener la persistencia de datos hemos optado por utilizar 
 
 ![](Imagenes/DiagramaEstadoPedido.png)
 
-### Diagrama de secuencia   
+### Diagrama de secuencia al realizar un pedido  
+
+![](Imagenes/DiagramaSecuencia.png)  
 
 ### Diagrama de clases   
 
-- Modelos de Negocio (namespace modelos):  
+- Modelos de Negocio: 
   
 ![](Imagenes/DiagramaClasesNegocio.png)
 
-- Arquitectura : En este caso todos los namespace hacen uso de los modelos de negocio anteriormente mostrados.  
+- Arquitectura:   
 
 ![](Imagenes/DiagramaClasesArquitectura.png)
 
